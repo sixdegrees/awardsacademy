@@ -1,0 +1,35 @@
+/*------------------------------------*\
+    Project variables
+\*------------------------------------*/
+// Grid
+$grid-max-width:940px;
+$grid-min-width:940px;
+$grid-mobile: false;
+$grid-mobile-breakpoint: $grid-min-width + 40px;
+
+$base-font-size: 16px;
+$base-line-height: 20px;
+
+// Colors
+$brand-color: #204a92;
+$brand-light-color: #476CB0;
+$brand-dark-color: darken($brand-color, 15);
+
+$brand-bg-dark:#373f4a;
+$brand-bg-dark-plain:#373f4a;
+$brand-bg-dark-gradient:#292e37;
+$brand-blue:#008CDD;
+$brand-blue-plain:#3491D3;
+$brand-blue-gradient:#7DC5EE;
+
+$font-color: #333;
+
+$black-color: #000;
+$silver-color: #CCC;
+$gray-dark-color: #666;
+$gray-darken-color: #9099A3;
+$gray-color: #a1a1a1;
+$gray-light-color: lighten(#eceef1, 0);
+$white-color: #FFF;
+
+$border-color: #d4d4d4;

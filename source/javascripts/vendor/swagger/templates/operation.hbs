@@ -1,0 +1,96 @@
+<ul class='operations' >
+  <li class='{{httpMethod}} operation' id='{{resourceName}}_{{nickname}}_{{httpMethod}}_{{number}}'>
+
+
+    <div class="row">
+      <div class='cell-12'>
+        <a href='#!/{{resourceName}}/{{nickname}}_{{httpMethod}}_{{number}}' class="toggleOperation label http_method {{httpMethod}}">{{httpMethod}}</a>
+        <span class='path'>
+          <a href='#!/{{resourceName}}/{{nickname}}_{{httpMethod}}_{{number}}' class="toggleOperation">{{path}}</a>
+        </span>
+        <p class="operation_description float-right align-right">
+          <a href='#!/{{resourceName}}/{{nickname}}_{{httpMethod}}_{{number}}' class="toggleOperation">{{{summary}}}</a>
+        </p>
+      </div>
+    </div>
+
+
+    <div class='container' id='{{resourceName}}_{{nickname}}_{{httpMethod}}_{{number}}_content' style='display:none'>
+
+
+        {{#if notes}}
+          <div class="section">
+            <h2 class='title'>Implementation Notes</h2>
+            <p class='notes'>{{{notes}}}</p>
+          </div>
+        {{/if}}
+
+
+        {{#if responseClass}}
+          <div class="section">
+            <h2 class='title'>Response Class</h2>
+            <p><span class="model-signature" /></p>
+            <div class="content-type" />
+          </div>
+        {{/if}}
+
+
+        <form accept-charset='UTF-8' class='sandbox section'>
+            <div style='margin:0;padding:0;display:inline'></div>
+            <h2 class='title'>Parameters</h2>
+            <table class='fullwidth'>
+                <thead>
+                <tr>
+                    <th style="width: 100px; max-width: 100px"><p>Parameter</p></th>
+                    <th style="width: 310px; max-width: 310px"><p>Value</p></th>
+                    <th style="width: 200px; max-width: 200px"><p>Description</p></th>
+                    <th style="width: 320px; max-width: 330px"><p>Data Type</p></th>
+                </tr>
+                </thead>
+                <tbody class="operation-params">
+                </tbody>
+            </table>
+
+            {{#if errorResponses}}
+              <div style='margin:0;padding:0;display:inline'></div>
+              <h2 class='title'>Status Codes</h2>
+              <table class='fullwidth'>
+                  <thead>
+                  <tr>
+                      <th style="width: 410px; max-width:410px">HTTP Status Code</th>
+                      <th>Reason</th>
+                  </tr>
+                  </thead>
+                  <tbody class="operation-status">
+                  
+                  </tbody>
+              </table>
+            {{/if}}
+            {{#if isReadOnly}}
+              {{else}}
+              <div class='sandbox_header row'>
+                <div class="cell-12">
+                  <input class='submit btn primary' name='commit' type='button' value='Try it out!' />
+                  <a href='#' class='response_hider' style='display:none'>Hide Response</a>
+                  <span class="response_throbber"></span>
+                </div>
+              </div>
+            {{/if}}
+        </form>
+
+
+        <div class='response section' style='display:none'>
+            <h4 class='title'>Request URL</h4>
+            <div class='block request_url'></div>
+            <h4 class='title'>Response Body</h4>
+            <div class='block response_body'></div>
+            <h4 class='title'>Response Code</h4>
+            <div class='block response_code'></div>
+            <h4 class='title'>Response Headers</h4>
+            <div class='block response_headers'></div>
+        </div>
+
+
+    </div>
+    </li>
+</ul>

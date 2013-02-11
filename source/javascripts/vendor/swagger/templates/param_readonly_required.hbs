@@ -1,0 +1,14 @@
+<td class=''>
+  <code class='required'>
+    {{name}}
+  </code>
+</td>
+<td>
+    {{#if isBody}}
+        <textarea class='body-textarea'  readonly='readonly' placeholder='(required)' name='{{name}}'>{{defaultValue}}</textarea>
+    {{else}}
+        {{defaultValue}}
+    {{/if}}
+</td>
+<td>{{{description}}}</td>
+<td><span class="model-signature"></span></td>

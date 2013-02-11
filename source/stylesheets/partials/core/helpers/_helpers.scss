@@ -1,0 +1,36 @@
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+
+.hidden { display: none; }
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+.clear{clear:both;}
+
+img.picture {background-color:#edebe5; display:block;}
+
+// Alignments
+.float-right{ float:right;}
+.float-left{ float:left;}
+
+.icon{  
+    @include hide-text;
+    width:16px;
+    height:16px;
+    display:block;
+    float:left;
+    background-color:transparent;
+    background-position:0 0;
+    background-repeat:no-repeat;
+    font-size:1px;
+    line-height:1px;
+    vertical-align:middle;
+}
+
+img.icon {
+    display:inline;
+    float:none;
+    text-indent:0;
+    max-width:none;
+}

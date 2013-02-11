@@ -1,0 +1,14 @@
+<header class="heading-alt row">
+  <div class="cell-6">
+    <h1 class='title'> <a href='#!/{{name}}' onclick="Docs.toggleEndpointListForResource('{{name}}');">/{{name}}</a></h1>
+  </div>
+  <div class="cell-6 align-right">
+    <ul class='options'>
+        <a class='btn primary small' href='#!/{{name}}' id='endpointListTogger_{{name}}' onclick="Docs.toggleEndpointListForResource('{{name}}');">Show/Hide</a>
+        <a class='btn small' href='#' onclick="Docs.collapseOperationsForResource('{{name}}'); return false;"> List Operations </a>
+        <a class='btn small' href='#' onclick="Docs.expandOperationsForResource('{{name}}'); return false;"> Expand Operations </a>
+        <a class='btn small transparent' href='{{url}}'>Raw</a>
+    </ul>
+  </div>
+</header>
+<ul class='endpoints features row' id='{{name}}_endpoint_list' style='display:none'></ul>
