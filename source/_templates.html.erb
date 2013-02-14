@@ -1,3 +1,10 @@
+<script type='text/handlebars' data-oahu-template="identity">
+    <a class='btn btn-large btn-block btn-primary' href="/{{game}}"
+    {{^account}}
+      data-oahu-action="login_redirect.logon" data-oahu-provider="facebook"
+    {{/account}}>Jouer aux {{game_name}}</a>
+</script>
+
 <script type="text/handlebars" data-oahu-template="quiz_entry">
   <div class='entry' id='entry_{{id}}' data-entry-id='{{id}}'>
     <div class='question'>
@@ -17,6 +24,7 @@
     </ul>
   </div>
 </script>
+
 <script type="text/handlebars" data-oahu-template="quiz_intro">
   {{#account}}
   <p class='message'>{{> quiz_intro_message_logged_in}}</p>
@@ -31,6 +39,7 @@
     </div>
   {{/account}}
 </script>
+
 <script type="text/handlebars" data-oahu-template="quiz_submitted">
   <p>Bravo ! Vos pronostics sont bien enregistrés.</p>
   <p>

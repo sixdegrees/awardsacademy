@@ -9,6 +9,18 @@ unless window.console and console.log
     console[methods[length]] = noop  while length--
   )()
 
+class Oahu.Apps.LoginRedirect extends Oahu.Apps.Identity
+  namespace:'login_redirect'
+  attrs: ["game", "game_name"]
+  logon: (e, ev, opts)->
+    href=$(e).attr('href')
+    ev.preventDefault()
+    Oahu.login 'facebook', {}, (res)->
+      if Oahu.account && res=='facebook:connect:success'
+        window.location.href= href
+
+
+
 class Oahu.Apps.CaQuiz extends Oahu.Apps.Quiz
   namespace:'ca_quiz'
 
