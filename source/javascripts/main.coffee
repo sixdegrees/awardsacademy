@@ -20,9 +20,12 @@ class Oahu.Apps.LoginRedirect extends Oahu.Apps.Identity
         window.location.href= href
 
 
-
 class Oahu.Apps.CaQuiz extends Oahu.Apps.Quiz
   namespace:'ca_quiz'
+
+  onstart: ()=>
+    super
+    $(".pagination").show()
 
   go_to_other: ()=>
     window.location.href = if @namespace is "cesar_quiz" then "/oscars" else "/cesars"
@@ -30,8 +33,9 @@ class Oahu.Apps.CaQuiz extends Oahu.Apps.Quiz
   share: ()->
     console.log "Sharing"
 
-  onfinish = ()->
-  _.delay(@share, 1000);
+  onafterfinish = ()->
+    _.delay(@share, 1000);
+
 
 class Oahu.Apps.OscarQuiz extends Oahu.Apps.CaQuiz
   namespace:'cesar_quiz'
