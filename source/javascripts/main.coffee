@@ -28,7 +28,7 @@ class Oahu.Apps.CaQuiz extends Oahu.Apps.Quiz
     $(".pagination").show()
 
   go_to_other: ()=>
-    window.location.href = if @namespace is "cesar_quiz" then "/oscars" else "/cesars"
+    window.location.href = if @other is "Cesars" then "/cesars" else "/oscars"
 
   share: ()->
     console.log "Sharing"
