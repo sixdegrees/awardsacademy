@@ -9,6 +9,93 @@
     height:image-height($img);
 }
 
+.hero-unit{
+  background: none;
+}
+
+.section{
+  margin-bottom: 60px;
+}
+
+.entry{
+  display: none;
+  &.active{
+    display: block;
+  }
+}
+.answers{
+  overflow: hidden;
+}
+.answer{
+   cursor: pointer;
+   width:25%;
+   margin: 0;
+   display: block;
+   float: left;
+   box-sizing:border-box;
+   padding: 10px;
+  border:1px solid #EEE;
+   &:hover{
+    background: #FAFAFA;
+   }
+  &.selected{
+    background: #425870;
+    color: #FFF;
+    border:1px solid #EEE;
+    @include border-radius(3px);
+  }
+  .name{
+    font-weight: bold;
+  }
+}
 
 #logo{
+  // @include hide-text;
+  // @include background-image-retina('logo.png');
+  max-width:image-width('logo.png');
+  max-height:image-height('logo.png');
+  margin:0 auto;
+  padding:0;
+  display:block;
+}
+
+#yipikaye{
+  @include hide-text;
+  @include background-image-retina('yipikaye.png');
+  width:image-width('yipikaye.png');
+  height:image-height('yipikaye.png');
+  margin:0 auto;
+  padding:0;
+  display:block;
+}
+
+#silenzio{
+  @include hide-text;
+  @include background-image-retina('silenzio.png');
+  width:image-width('silenzio.png');
+  height:image-height('silenzio.png');
+  margin:0 auto;
+  padding:0;
+  display:block;
+}
+
+#hull{
+  @include hide-text;
+  @include background-image-retina('yipikaye.png');
+  width:image-width('yipikaye.png');
+  height:image-height('yipikaye.png');
+  margin:0 auto;
+  padding:0;
+  display:block;
+}
+
+.page_footer{
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 70px;
+  border-top: 1px solid #E5E5E5;
+  background-color: whiteSmoke;
+  .logo{
+    width:100px;
+  }
 }

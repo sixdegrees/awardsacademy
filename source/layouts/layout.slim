@@ -23,11 +23,16 @@ html
     .container
       .hero-unit
         h1
-          a#logo
+          a#logo href="/"
             img src="/images/logo.png"
-      ==partial 'nav'
-      == yield
+      .content
+        ==partial 'nav'
+        == yield
 
+      ==partial 'footer'
+
+
+      ==partial 'templates'
   == javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'
   == javascript_include_tag '//app-staging.oahu.fr/assets/oahu.js'
   == javascript_include_tag '//app-staging.oahu.fr/assets/oahu-apps.js'

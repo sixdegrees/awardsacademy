@@ -1,5 +1,4 @@
 # Avoid `console` errors in browsers that lack a console.
-
 unless window.console and console.log
   (->
     noop = ->
@@ -10,35 +9,37 @@ unless window.console and console.log
     console[methods[length]] = noop  while length--
   )()
 
+class Oahu.Apps.CaQuiz extends Oahu.Apps.Quiz
+  namespace:'ca_quiz'
 
-class App
+  go_to_other: ()=>
+    window.location.href = if @namespace is "cesar_quiz" then "/oscars" else "/cesars"
 
-  constructor: ()->
+  share: ()->
+    console.log "Sharing"
 
-  stopEvent: (e)->
-    e.preventDefault()
-    e.stopPropagation()
-    e.stopImmediatePropagation()
-    false
+  onfinish = ()->
+  _.delay(@share, 1000);
 
-  capitalize: (str) -> str.charAt(0).toUpperCase() + str.slice(1)
+class Oahu.Apps.OscarQuiz extends Oahu.Apps.CaQuiz
+  namespace:'cesar_quiz'
+  other:'Cesars'
 
-  joinWithAnd: (rest..., last)-> "#{rest.join(', ')} and #{last}"
+class Oahu.Apps.CesarQuiz extends Oahu.Apps.CaQuiz
+  namespace:'oscar_quiz'
+  other:'Oscars'
 
-Oahu.Apps.Quiz.prototype.share = ()->
-  Oahu.ui.share 'facebook'
-    link: "link"
-    title: 'Title'
-    name: 'Name'
-    source: ""
-    caption: "#{Oahu.account.facebook.name} a participé aux Cesar Academy"
-    description: "Participez et voyez si vous êtes meilleur que lui !"
-  ,(p) =>
-    Oahu.track("quiz", "share", @id, { provider: 'facebook' }) if p
-
-Oahu.Apps.Quiz.prototype.onfinish = ()->
-  alert("Shared !")
-  _.delay(@share, 3000);
-
-
-$ () -> app = new App()
+  share: ()=>
+    Oahu.ui.share 'facebook'
+      link: "link"
+      title: 'Title'
+      name: 'Name'
+      source: ""
+      caption: "#{Oahu.account.facebook.name} a participé aux Cesar Academy"
+      description: "Participez et voyez si vous êtes meilleur que lui !"
+    ,(p) =>
+      console.log @
+      b = Oahu.account.player.badges
+      other = _.reject b, (v,i) -> i==@id
+      @go_to_other() unless other.length
+      Oahu.track("quiz", "share", @id, { provider: 'facebook' }) if p

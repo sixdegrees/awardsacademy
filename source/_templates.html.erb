@@ -1,0 +1,83 @@
+<script type="text/handlebars" data-oahu-template="quiz_entry">
+  <div class='entry' id='entry_{{id}}' data-entry-id='{{id}}'>
+    <div class='question'>
+      <h2 class='title'>{{name}}</h2>
+      {{#picture}}
+        <div class="picture">{{#picture}}<div><img src="{{picture}}"></div>{{/picture}}</div>
+      {{/picture}}
+      {{#resource}}
+        {{> quiz_resource}}
+      {{/resource}}
+      {{> quiz_description}}
+    </div>
+    <ul class="answers">
+      {{#answers}}
+        <li class="answer {{#if selected}}selected{{/if}}" id="answer_{{id}}" data-oahu-action="quiz.answer" data-oahu-opts="{{id}}">{{> quiz_answer}}</li>
+      {{/answers}}
+    </ul>
+  </div>
+</script>
+<script type="text/handlebars" data-oahu-template="quiz_intro">
+  {{#account}}
+  <p class='message'>{{> quiz_intro_message_logged_in}}</p>
+  <div class='actions'>
+    <a class="btn primary" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Démarrer</a>
+  </div>
+  {{/account}}
+  {{^account}}
+    <p class='message'>Bonjour, bienvenue cher inconnu... Connectez vous avec facebook !</p>
+    <div class='actions'>
+      <a class="btn primary facebook" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Participer avec Facebook</a>
+    </div>
+  {{/account}}
+</script>
+<script type="text/handlebars" data-oahu-template="quiz_submitted">
+  <p>Bravo ! Vos pronostics sont bien enregistrés.</p>
+  <p>
+    <a data-oahu-action="print" class='btn btn-primary btn-large'>Imprimer Mes Pronostics</a>
+  </p>
+  <p>
+    <em>(On vous a fait une jolie présentation pour vous faire mousser à votre soirée César/Oscars)</em>
+  </p>
+
+  <div class='actions'>
+    <a class="btn secondary btn-warning btn-large" data-oahu-action="quiz.reset">Modifier mes pronostics</a>
+    <a class="btn secondary btn-info btn-large" data-oahu-action="quiz.go_to_other">Pronostiquer les {{other}}</a>
+  </div>
+</script>
+
+<script type="text/handlebars" data-oahu-template="friends">
+  {{#if account}}
+    <ul class="friends thumbnails">
+      {{#ifEqual provider "hull"}}
+        {{#friends}}
+          <li class='span3'>
+            <img src="{{picture}}"/> {{name}}
+            <div class="badges">
+              Badges : 
+              {{#key_value badges}}
+                <span class="badge badge-success">{{value.name}}</span>
+              {{/key_value}}
+            </div>
+          </li>
+        {{/friends}}
+      {{/ifEqual}}
+      {{#ifEqual provider "facebook"}}
+        {{#friends}}
+          <li class='span2'>
+            <a href="{{url}}" class='thumbnail'>
+              <img src="{{picture.data.url}}"/>
+              {{name}} 
+            </a>
+          </li>
+        {{/friends}}
+      {{/ifEqual}}
+      {{^friends}}
+        Aucun ami n'a participé pour le moment.
+      {{/friends}}
+    </ul>
+  {{else}}
+    Please connect to see your friends
+  {{/if}}
+</script>
+
