@@ -56,9 +56,10 @@
 </script>
 
 <script type="text/handlebars" data-oahu-template="friends">
+  <h5>Vos amis y ont joué :</h5> 
   {{#if account}}
     <ul class="friends thumbnails">
-      {{#ifEqual provider "hull"}}
+      {{#ifEqual provider "oahu"}}
         {{#friends}}
           <li class='span3'>
             <img src="{{picture}}"/> {{name}}
