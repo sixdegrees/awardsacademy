@@ -1,7 +1,7 @@
 <script type='text/handlebars' data-oahu-template="quiz_printable">
   <div class='row answers_headers'>
     <div class='span8'>
-      <h1>Vos votes pour les {{self}}</h1>
+      <h1>Les votes de {{#account}}{{name}}{{/account}} pour les {{self}}</h1>
     </div>
     <div class='span4'>
       <h4>
@@ -108,7 +108,8 @@
 <script type="text/handlebars" data-oahu-template="quiz_intro">
   {{#account}}
   <div class='actions'>
-    <a class="btn btn-primary" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Démarrer les pronostics</a>
+    <h1 class='text-center'>Vous êtes prêts ?</h1>
+    <a class="btn btn-info btn-block btn-large" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Démarrer les pronostics</a>
   </div>
   {{/account}}
   {{^account}}
@@ -120,12 +121,6 @@
 </script>
 
 <script type="text/handlebars" data-oahu-template="quiz_shares">
-  <div class='shares'>
-    <h3>Partager</h3>
-    <a class="btn btn-small share facebook btn-primary" data-oahu-action="quiz.invite"><i class='icon'></i> Inviter des amis</a>
-    <a class='btn btn-small share facebook btn-primary' data-oahu-action="quiz.share" data-oahu-provider='facebook'><i class='icon'></i> Partager</a>
-    <a class='btn btn-small share twitter btn-primary' data-oahu-action="quiz.share" data-oahu-provider='twitter'><i class='icon'></i> Partager</a>
-  </div>
 </script>
 
 <script type="text/handlebars" data-oahu-template="quiz_submitted">
@@ -138,8 +133,14 @@
   </p>
 
   <div class='actions'>
-    <a class="btn btn-warning" data-oahu-action="quiz.reset">Modifier mes pronostics</a>
+    <a class="btn btn-warning" data-oahu-action="quiz.restart">Modifier mes pronostics</a>
     <a class="btn btn-info" data-oahu-action="quiz.go_to_other">Pronostiquer les {{other}}</a>
+  </div>
+  <div class='shares'>
+    <h3>Partager</h3>
+    <a class="btn btn-small share facebook btn-primary" data-oahu-action="quiz.invite"><i class='icon'></i> Inviter des amis</a>
+    <a class='btn btn-small share facebook btn-primary' data-oahu-action="quiz.share" data-oahu-provider='facebook'><i class='icon'></i> Partager</a>
+    <a class='btn btn-small share twitter btn-primary' data-oahu-action="quiz.share" data-oahu-provider='twitter'><i class='icon'></i> Partager</a>
   </div>
 </script>
 
@@ -152,7 +153,7 @@
           <li class='span3'>
             <img src="{{picture}}"/> {{name}}
             <div class="badges">
-              Badges : 
+              A pronostiqué quiz : 
               {{#key_value badges}}
                 <span class="badge badge-success">{{value.name}}</span>
               {{/key_value}}
