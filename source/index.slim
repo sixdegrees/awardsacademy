@@ -16,18 +16,18 @@
 
         p Pronostiquez les résultats des Césars et des Oscars et montez sur le podium de l’Award Academy.
 
-        p
-          | Vous pourrez même imprimer vos pronostics pour votre soirée Césars/Oscars entre amis.
+        p Vous pourrez même imprimer vos pronostics pour votre soirée Césars/Oscars entre amis.
 
         h4 À vos marques… Prêts ?... PRONOSTIQUEZ !
       .span5
-        .friends data-oahu-widget="friends" data-oahu-provider="oahu"
+        ul.thumbnails.connect
+          li.span5
+            img src="/images/cesar_button.jpg"
+            .login data-oahu-widget="login_redirect" data-oahu-game="cesar" data-oahu-game_name="Cesar"
+          li.span5
+            img src="/images/oscar_button.jpg"
+            .login data-oahu-widget="login_redirect" data-oahu-game="oscars" data-oahu-game_name="Oscars"
 
     .row.section
-      ul.thumbnails.connect
-        li.span6
-          img src="/images/cesar_button.jpg"
-          .login data-oahu-widget="login_redirect" data-oahu-game="cesar" data-oahu-game_name="Cesar"
-        li.span6
-          img src="/images/oscar_button.jpg"
-          .login data-oahu-widget="login_redirect" data-oahu-game="oscars" data-oahu-game_name="Oscars"
+      .span12
+        .friends data-oahu-widget="friends" data-oahu-provider="oahu"

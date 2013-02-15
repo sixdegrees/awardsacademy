@@ -140,23 +140,28 @@
     <h3>Partager</h3>
     <a class="btn btn-small share facebook btn-primary" data-oahu-action="quiz.invite"><i class='icon'></i> Inviter des amis</a>
     <a class='btn btn-small share facebook btn-primary' data-oahu-action="quiz.share" data-oahu-provider='facebook'><i class='icon'></i> Partager</a>
-    <a class='btn btn-small share twitter btn-primary' data-oahu-action="quiz.share" data-oahu-provider='twitter'><i class='icon'></i> Partager</a>
+    <a class='btn btn-small share twitter btn-primary' data-oahu-action="quiz.share" data-oahu-provider='twitter'><i class='icon'></i> Tweeter</a>
   </div>
 </script>
 
 <script type="text/handlebars" data-oahu-template="friends">
-  <h5>Vos amis y ont joué :</h5> 
   {{#if account}}
+    <h5>Vos amis y ont joué :</h5> 
     <ul class="friends thumbnails">
       {{#ifEqual provider "oahu"}}
         {{#friends}}
-          <li class='span3'>
-            <img src="{{picture}}"/> {{name}}
-            <div class="badges">
-              A pronostiqué quiz : 
-              {{#key_value badges}}
-                <span class="badge badge-success">{{value.name}}</span>
-              {{/key_value}}
+          <li class='span3 thumbnail'>
+            <div class="media">
+              <div class="pull-left">
+                <img class="media-object" src="{{picture}}">
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">{{name}}</h4>
+                <strong>A pronostiqué : </strong>
+                {{#key_value badges}}
+                  <span class="label">Les {{value.name}}</span>
+                {{/key_value}}
+              </div>
             </div>
           </li>
         {{/friends}}
@@ -176,7 +181,8 @@
       {{/friends}}
     </ul>
   {{else}}
-    Please connect to see your friends
+    <p class='lead'>Connectez vous pour voir lesquels de vos amis ont participé !</p>
+    <a class='btn btn-block btn-large btn-primary' data-oahu-action="login" data-oahu-provider='facebook'>Connectez vous avec Facebook</a>
   {{/if}}
 </script>
 
