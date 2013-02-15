@@ -21,6 +21,9 @@ class Oahu.Apps.LoginRedirect extends Oahu.Apps.Identity
 
 class Oahu.Apps.CaQuiz extends Oahu.Apps.Quiz
   namespace:'ca_quiz'
+  self: 'Quiz'
+  other: 'Quiz'
+  thumb: ''
   templates: ["quiz", "quiz_answer", "quiz_description", "quiz_entries", "quiz_entry", "quiz_footer", "quiz_header", "quiz_shares", "quiz_intro", "quiz_intro_message_logged_in", "quiz_intro_message_logged_out", "quiz_pagination", "quiz_resource", "quiz_submitted", "quiz_finished", "quiz_profile", 'quiz_printable']
 
   onstart: ()=>
@@ -28,12 +31,23 @@ class Oahu.Apps.CaQuiz extends Oahu.Apps.Quiz
     $(".pagination").show()
 
   go_to_other: ()=>
-    window.location.href = if @other is "Cesars" then "/cesars" else "/oscars"
+    window.location.href = if @other is "Cesar" then "/cesar" else "/oscars"
 
-  share: ()->
-    console.log "Sharing"
+  # share: ()=>
+  #   Oahu.ui.share 'facebook'
+  #     link: 'http://facebook.com/silenzio'
+  #     name: "#{@account.name} a Pronostiqué les #{@self}"
+  #     source: @thumb
+  #     caption: "#{Oahu.account.facebook.name} a participé aux Awards Academy, faites le vous aussi"
+  #     description: "Participez et voyez si vous êtes meilleur que lui !"
+  #   ,(p) =>
+  #     console.log @
+  #     b = Oahu.account.player.badges
+  #     other = _.reject b, (v,i) -> i==@id
+  #     @go_to_other() unless other.length
+  #     Oahu.track("quiz", "share", @id, { provider: 'facebook' }) if p
 
-  onafterfinish = ()->
+  onaftersubmit: ()=>
     _.delay(@share, 1000);
 
   do_print: ()->
@@ -53,27 +67,18 @@ class Oahu.Apps.CaQuiz extends Oahu.Apps.Quiz
     @renderSection('printable')
     @do_print()
 
+  onafterreset: ()->
+    @start()
+
 class Oahu.Apps.OscarQuiz extends Oahu.Apps.CaQuiz
   namespace:'cesar_quiz'
   self: 'Oscars'
-  other:'Cesars'
+  other:'Cesar'
+  thumb: 'http://app-staging.oahu.fr/img/511e4adc873b0c4e5f007a94/app_mini'
 
 class Oahu.Apps.CesarQuiz extends Oahu.Apps.CaQuiz
   namespace:'oscar_quiz'
-  self: 'Cesars'
+  self: 'Cesar'
   other:'Oscars'
+  thumb: 'http://app-staging.oahu.fr/img/511e514b873b0c4f55007cff/app_mini'
 
-  share: ()=>
-    Oahu.ui.share 'facebook'
-      link: "link"
-      title: 'Title'
-      name: 'Name'
-      source: ""
-      caption: "#{Oahu.account.facebook.name} a participé aux Cesar Academy"
-      description: "Participez et voyez si vous êtes meilleur que lui !"
-    ,(p) =>
-      console.log @
-      b = Oahu.account.player.badges
-      other = _.reject b, (v,i) -> i==@id
-      @go_to_other() unless other.length
-      Oahu.track("quiz", "share", @id, { provider: 'facebook' }) if p

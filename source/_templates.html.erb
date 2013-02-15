@@ -5,7 +5,7 @@
     </div>
     <div class='span4'>
       <h4>
-        <a class="btn secondary btn-large" data-oahu-action="quiz.do_print">Imprimer</a>
+        <a class="btn secondary" data-oahu-action="quiz.do_print">Imprimer</a>
       </h4>
     </div>
   </div>
@@ -21,16 +21,14 @@
       </div>
     {{/answers_details}}
   </div>
-  <a class="btn secondary btn-large" data-oahu-action="quiz.do_print">Imprimer</a>
+  <a class="btn secondary" data-oahu-action="quiz.do_print">Imprimer</a>
 </script>
 
 <script type='text/handlebars' data-oahu-template="identity">
-  <div class='well'>
-    <a class='btn btn-large btn-block btn-inverse' href="/{{game}}"
-    {{^account}}
-      data-oahu-action="login_redirect.logon" data-oahu-provider="facebook"
-    {{/account}}>Pronostiquez les {{game_name}}</a>
-  </div>
+  <a class='btn btn-block btn-primary' href="/{{game}}"
+  {{^account}}
+    data-oahu-action="login_redirect.logon" data-oahu-provider="facebook"
+  {{/account}}>Pronostiquez les {{game_name}}</a>
 </script>
 
 <script type="text/handlebars" data-oahu-template="quiz_answer">
@@ -76,31 +74,40 @@
 
 <script type="text/handlebars" data-oahu-template="quiz_intro">
   {{#account}}
-  <p class='message'>{{> quiz_intro_message_logged_in}}</p>
   <div class='actions'>
-    <a class="btn primary" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Démarrer</a>
+    <a class="btn btn-primary" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Démarrer les pronostics</a>
   </div>
   {{/account}}
   {{^account}}
     <p class='message'>Bonjour, bienvenue cher inconnu... Connectez vous avec facebook !</p>
     <div class='actions'>
-      <a class="btn primary facebook" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Participer avec Facebook</a>
+      <a class="btn btn-primary facebook" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Participer avec Facebook</a>
     </div>
   {{/account}}
+</script>
+
+<script type="text/handlebars" data-oahu-template="quiz_shares">
+  <!--
+  <div class='shares'>
+    <h3>Partager</h3>
+    <a class='btn share facebook' data-oahu-action="quiz.share" data-oahu-provider='facebook'><i class='icon'></i> Facebook</a>
+    <a class='btn share twitter' data-oahu-action="quiz.share" data-oahu-provider='twitter'><i class='icon'></i> Twitter</a>
+  </div>
+  -->
 </script>
 
 <script type="text/handlebars" data-oahu-template="quiz_submitted">
   <p>Bravo ! Vos pronostics sont bien enregistrés.</p>
   <p>
-    <a data-oahu-action="quiz.show_printable" class='btn btn-primary btn-large'>Imprimer Mes Pronostics</a>
+    <a data-oahu-action="quiz.show_printable" class='btn btn-primary'>Imprimer Mes Pronostics</a>
   </p>
   <p>
     <em>(On vous a fait une jolie présentation pour vous faire mousser à votre soirée César/Oscars)</em>
   </p>
 
   <div class='actions'>
-    <a class="btn secondary btn-warning btn-large" data-oahu-action="quiz.reset">Modifier mes pronostics</a>
-    <a class="btn secondary btn-info btn-large" data-oahu-action="quiz.go_to_other">Pronostiquer les {{other}}</a>
+    <a class="btn secondary btn-warning" data-oahu-action="quiz.reset">Modifier mes pronostics</a>
+    <a class="btn secondary btn-info" data-oahu-action="quiz.go_to_other">Pronostiquer les {{other}}</a>
   </div>
 </script>
 
