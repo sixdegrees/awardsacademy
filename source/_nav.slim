@@ -1,11 +1,15 @@
-.navbar.section
+.navbar.navbar-static-top.navbar-inverse
   .navbar-inner
-    .brand
-      a href="/" Home
-    ul.nav
-      li
-        ==link_to "Cesar", "/cesars"
-      li
-        ==link_to "Oscars", "/oscars"
-      li
-        ==link_to "Les Règles du jeu", "/rules"
+    .container
+      .content
+        .row
+          .span12
+            .brand
+              a href="/" Home
+            ul.nav
+              li
+                ==link_to "Cesar", "/cesars"
+              li
+                ==link_to "Oscars", "/oscars"
+              li
+                ==link_to "Les Règles du jeu", "/rules"

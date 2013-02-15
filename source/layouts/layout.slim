@@ -11,28 +11,20 @@ html
     meta property='og:url' content='http://hull.io'
     meta property='og:image' content='http://hull.io/assets/hull.jpg'
     meta property='og:description' content=data.strings.description
-    == stylesheet_link_tag('//app-staging.oahu.fr/assets/oahu.css')
-    == stylesheet_link_tag('//app-staging.oahu.fr/assets/oahu-apps.css')
-    == stylesheet_link_tag('style')
+    == stylesheet_link_tag '//app-staging.oahu.fr/assets/oahu.css', :media=>'all'
+    == stylesheet_link_tag '//app-staging.oahu.fr/assets/oahu-apps.css', :media=>'all'
+    == stylesheet_link_tag 'style', :media=>'all'
+    == stylesheet_link_tag 'vendor/bootstrap-responsive', :media=>'screen'
     /[if IE]
-      == stylesheet_link_tag('ie')
+      == stylesheet_link_tag 'ie'
     link rel='shortcut icon' type='image/x-icon' href='/favicon.ico'
     == javascript_include_tag('vendor/modernizr')
 
   body
-    .container
-      .hero-unit
-        h1
-          a#logo href="/"
-            img src="/images/logo.png"
-      .content
-        ==partial 'nav'
-        == yield
-
-      ==partial 'footer'
-
-
-      ==partial 'templates'
+    ==partial 'nav'
+    == yield
+    ==partial 'footer'
+    ==partial 'templates'
   == javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'
   == javascript_include_tag '//app-staging.oahu.fr/assets/oahu.js'
   == javascript_include_tag '//app-staging.oahu.fr/assets/oahu-apps.js'

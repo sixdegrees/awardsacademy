@@ -1,8 +1,57 @@
+<script type='text/handlebars' data-oahu-template="quiz_printable">
+  <div class='row answers_headers'>
+    <div class='span8'>
+      <h1>Vos votes pour les {{self}}</h1>
+    </div>
+    <div class='span4'>
+      <h4>
+        <a class="btn secondary btn-large" data-oahu-action="quiz.do_print">Imprimer</a>
+      </h4>
+    </div>
+  </div>
+  <div class='row user_answers'>
+    {{#answers_details}}
+      <div class='span4'>
+        <h4>{{name}}</h4>
+        <div class='media answer'>
+          {{#response}}
+            {{> quiz_answer}}
+          {{/response}}
+        </div>
+      </div>
+    {{/answers_details}}
+  </div>
+  <a class="btn secondary btn-large" data-oahu-action="quiz.do_print">Imprimer</a>
+</script>
+
 <script type='text/handlebars' data-oahu-template="identity">
+  <div class='well'>
     <a class='btn btn-large btn-block btn-inverse' href="/{{game}}"
     {{^account}}
       data-oahu-action="login_redirect.logon" data-oahu-provider="facebook"
     {{/account}}>Pronostiquez les {{game_name}}</a>
+  </div>
+</script>
+
+<script type="text/handlebars" data-oahu-template="quiz_answer">
+  {{#resource}}
+    <div class="pull-left" href="#">
+    {{> quiz_resource}}
+    </div>
+  {{/resource}}
+  <div class="media-body">
+    <h4 class="media-heading">{{name}}</h4>
+    {{> quiz_description}}
+  </div>
+</script>
+
+<script type="text/handlebars" data-oahu-template="quiz_resource">
+  {{#is_image}}
+    <img class='media-object' src="{{paths.small}}">
+  {{/is_image}}
+  {{#is_video}}
+    <div class="videoplayer" id="videoplayer_{{id}}" data-oahu-widget="video" data-oahu-id='{{id}}'></div>
+  {{/is_video}}
 </script>
 
 <script type="text/handlebars" data-oahu-template="quiz_entry">
@@ -19,7 +68,7 @@
     </div>
     <ul class="answers">
       {{#answers}}
-        <li class="answer {{#if selected}}selected{{/if}}" id="answer_{{id}}" data-oahu-action="quiz.answer" data-oahu-opts="{{id}}">{{> quiz_answer}}</li>
+        <li class="{{#if selected}}selected{{/if}} span4 media answer" id="answer_{{id}}" data-oahu-action="quiz.answer" data-oahu-opts="{{id}}">{{> quiz_answer}}</li>
       {{/answers}}
     </ul>
   </div>
@@ -43,7 +92,7 @@
 <script type="text/handlebars" data-oahu-template="quiz_submitted">
   <p>Bravo ! Vos pronostics sont bien enregistrés.</p>
   <p>
-    <a data-oahu-action="print" class='btn btn-primary btn-large'>Imprimer Mes Pronostics</a>
+    <a data-oahu-action="quiz.show_printable" class='btn btn-primary btn-large'>Imprimer Mes Pronostics</a>
   </p>
   <p>
     <em>(On vous a fait une jolie présentation pour vous faire mousser à votre soirée César/Oscars)</em>

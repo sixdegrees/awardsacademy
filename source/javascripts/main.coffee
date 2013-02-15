@@ -19,9 +19,9 @@ class Oahu.Apps.LoginRedirect extends Oahu.Apps.Identity
       if Oahu.account && res=='facebook:connect:success'
         window.location.href= href
 
-
 class Oahu.Apps.CaQuiz extends Oahu.Apps.Quiz
   namespace:'ca_quiz'
+  templates: ["quiz", "quiz_answer", "quiz_description", "quiz_entries", "quiz_entry", "quiz_footer", "quiz_header", "quiz_shares", "quiz_intro", "quiz_intro_message_logged_in", "quiz_intro_message_logged_out", "quiz_pagination", "quiz_resource", "quiz_submitted", "quiz_finished", "quiz_profile", 'quiz_printable']
 
   onstart: ()=>
     super
@@ -36,13 +36,31 @@ class Oahu.Apps.CaQuiz extends Oahu.Apps.Quiz
   onafterfinish = ()->
     _.delay(@share, 1000);
 
+  do_print: ()->
+    window.print()
+
+  show_printable: ()-> 
+    my_answers = @result.answers
+    @answers_details = _.map @entries, (entry)=>
+      selected = my_answers[entry.id]
+      response = _.find entry.answers, (answer)=>
+        answer.id==selected
+      {
+        name: entry.name
+        response: response
+      }
+
+    @renderSection('printable')
+    @do_print()
 
 class Oahu.Apps.OscarQuiz extends Oahu.Apps.CaQuiz
   namespace:'cesar_quiz'
+  self: 'Oscars'
   other:'Cesars'
 
 class Oahu.Apps.CesarQuiz extends Oahu.Apps.CaQuiz
   namespace:'oscar_quiz'
+  self: 'Cesars'
   other:'Oscars'
 
   share: ()=>

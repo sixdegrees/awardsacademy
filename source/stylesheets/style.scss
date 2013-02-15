@@ -9,12 +9,25 @@
     height:image-height($img);
 }
 
+a, a:visited{
+  color:#FFB745;
+}
+
+body{
+  -webkit-font-smoothing:antialiased;
+}
 .hero-unit{
   background: none;
 }
 
 .section{
   margin-bottom: 60px;
+}
+
+.login{
+  .well{
+    margin-bottom: 0;
+  }
 }
 
 .entry{
@@ -26,27 +39,19 @@
 .answers{
   overflow: hidden;
 }
-.answer{
-   cursor: pointer;
-   width:25%;
-   margin: 0;
-   display: block;
-   float: left;
-   box-sizing:border-box;
-   padding: 10px;
-  border:1px solid #EEE;
-   &:hover{
-    background: #FAFAFA;
-   }
-  &.selected{
-    background: #425870;
-    color: #FFF;
-    border:1px solid #EEE;
-    @include border-radius(3px);
+
+.banner{
+  height: 180px;
+  margin-bottom: 0;
+  &.cesar{
+    @include background-image(image-url("/images/cesar_header.jpg"));
   }
-  .name{
-    font-weight: bold;
+  &.oscar{
+    @include background-image(image-url("/images/oscar_header.jpg"));
   }
+  background-color: black;
+  background-position:  center;
+  background-repeat: repeat-x;
 }
 
 #logo{
@@ -95,11 +100,113 @@
   margin-top: 70px;
   border-top: 1px solid #E5E5E5;
   background-color: whiteSmoke;
+  margin-bottom: 0px;
+  a{
+    display: block;
+    padding: 10px;
+  }
   .logo{
-    width:100px;
+    max-height:25px;
+    margin:0 20px;
   }
 }
 
-.oahu.layout .answer{
-  min-height: 150px;
+.oahu.layout{
+  &.quiz{
+    .header{
+      display: none;
+    }
+  }
+  .entry{
+    .answer{
+      background: #FFF;
+       &:hover{
+        background: #3A3C44;
+        color: #FFF;
+       }
+      &.selected{
+        background: #777A88;
+      }
+      @include transition(all 0.2s ease-out);
+      
+    }
+  }
+  .answer{
+    height: 154px;
+    margin:6px;
+    padding:7px;
+    cursor: pointer;
+    box-sizing:border-box;
+    @include border-radius(3px);
+    .name{
+      font-weight: bold;
+    }
+    img.media-object{
+      width:100px;
+      height: 140px;
+      @include border-radius(2px);
+    }
+    .description{
+      font-size: 10px;
+      line-height: 1.2;
+    }
+    h4{
+      font-size: 12px;
+      line-height: 1.2;
+    }
+  }
 }
+
+.user_answers{
+  .span4{
+    height: 250px;
+  }
+}
+
+
+@media print {
+  .banner{
+    display: none;
+  }
+  .btn, .oahu .btn{
+    display: none;
+  }
+  .navbar{
+    display: none;
+  }
+  .oahu{
+    &.layout{
+      h4{
+        font-size: 1.1em;
+      }
+      .answer {
+        img.media-object{
+          width: 50px;
+          height: 70px;
+        }
+        margin: 0;
+        padding: 0;
+      }
+      .header{
+        margin: 0;
+      }
+      .contents{
+        margin:0;
+      }
+    }
+    .pagination .pages, .footer{
+      display: none;
+    }
+  }
+  .user_answers .span4{
+    height: 130px;
+  }
+  .page_footer{
+    margin: 20px 0 0 0;
+  }
+}
+
+.answers_headers{
+  margin-bottom: 40px;
+}
+
