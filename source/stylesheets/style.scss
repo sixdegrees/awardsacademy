@@ -118,8 +118,20 @@ body{
 
 .oahu.layout{
   &.quiz{
+    position: relative;
     .header{
       display: none;
+    }
+    .page_counter{
+      position: absolute;
+      right: 0;
+      top: 28px;
+      font-weight: 900;
+    }
+    .pagination{
+      .btn{
+        padding: 10px 15px;
+      }
     }
   }
   .entry{
@@ -228,6 +240,7 @@ body{
   @include border-radius(2px);
   padding: 20px 25px;
   font-weight: 700;
+  // min-width: 200px
 }
 .btn-primary{
   background: #404040;

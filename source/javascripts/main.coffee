@@ -33,19 +33,24 @@ class Oahu.Apps.CaQuiz extends Oahu.Apps.Quiz
   go_to_other: ()=>
     window.location.href = if @other is "Cesar" then "/cesar" else "/oscars"
 
-  # share: ()=>
-  #   Oahu.ui.share 'facebook'
-  #     link: 'http://facebook.com/silenzio'
-  #     name: "#{@account.name} a Pronostiqué les #{@self}"
-  #     source: @thumb
-  #     caption: "#{Oahu.account.facebook.name} a participé aux Awards Academy, faites le vous aussi"
-  #     description: "Participez et voyez si vous êtes meilleur que lui !"
-  #   ,(p) =>
-  #     console.log @
-  #     b = Oahu.account.player.badges
-  #     other = _.reject b, (v,i) -> i==@id
-  #     @go_to_other() unless other.length
-  #     Oahu.track("quiz", "share", @id, { provider: 'facebook' }) if p
+  share: ()=>
+    name = if @account?.name then "#{@account.name} a rendu son verdict !" else "l'Award Academy 2013"
+    caption = if @account?.name and @self? then "#{@account.name} a pronostiqué les #{@self}. Jouez vous aussi et voyez si vous êtes meilleur que lui" else "Jouez à l'Award Academy !"
+
+    Oahu.ui.share 'facebook'
+      link: 'http://facebook.com/silenzio/'
+      name: name
+      source: @thumb
+      caption: caption
+    ,(p) =>
+      b = Oahu.account.player.badges
+      other = _.reject b, (v,i) -> i==@id
+      @go_to_other() unless other.length
+      Oahu.track("quiz", "share", @id, { provider: 'facebook' }) if p
+
+  invite: ()->
+    Oahu.ui.request 'facebook', (e)->
+      console.log "Request", arguments
 
   onaftersubmit: ()=>
     _.delay(@share, 1000);
@@ -67,18 +72,15 @@ class Oahu.Apps.CaQuiz extends Oahu.Apps.Quiz
     @renderSection('printable')
     @do_print()
 
-  onafterreset: ()->
-    @start()
-
 class Oahu.Apps.OscarQuiz extends Oahu.Apps.CaQuiz
   namespace:'cesar_quiz'
   self: 'Oscars'
   other:'Cesar'
-  thumb: 'http://app-staging.oahu.fr/img/511e4adc873b0c4e5f007a94/app_mini'
+  thumb: 'http://app-staging.oahu.fr/img/511e4add873b0c4e5f007a95/medium'
 
 class Oahu.Apps.CesarQuiz extends Oahu.Apps.CaQuiz
   namespace:'oscar_quiz'
   self: 'Cesar'
   other:'Oscars'
-  thumb: 'http://app-staging.oahu.fr/img/511e514b873b0c4f55007cff/app_mini'
+  thumb: 'http://app-staging.oahu.fr/img/511e514b873b0c4f55007cff/medium'
 

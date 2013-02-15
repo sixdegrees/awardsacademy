@@ -31,6 +31,20 @@
   {{/account}}>Pronostiquez les {{game_name}}</a>
 </script>
 
+
+<script type="text/handlebars" data-oahu-template="quiz_entries">
+  <div class="stack">
+    <div class='page_counter'>
+      <a class='current'><span class="current_idx"></span> / {{entries.length}}</a>
+    </div>
+    {{#entries}}
+      {{> quiz_entry}}
+    {{/entries}}
+  </div>
+  <span class="quiz_timer"></span>
+  <span class="question_timer"></span>
+</script>
+
 <script type="text/handlebars" data-oahu-template="quiz_answer">
   {{#resource}}
     <div class="pull-left" href="#">
@@ -52,18 +66,36 @@
   {{/is_video}}
 </script>
 
+<script type="text/handlebars" data-oahu-template="quiz_pagination">
+  <div class='pagination'>
+    <div class='pages'>
+      <a class='btn btn-small prev'  data-oahu-action="quiz.prev">← Pr&eacute;c&eacute;dent</a>
+      <a class='btn btn-small next'  data-oahu-action="quiz.next">Suivant →</a>
+    </div>
+    <div class='actions'>
+      <a class='btn btn-small finish' data-oahu-action="quiz.finish">Terminer</a>
+    </div>
+  </div>
+</script>
+
 <script type="text/handlebars" data-oahu-template="quiz_entry">
   <div class='entry' id='entry_{{id}}' data-entry-id='{{id}}'>
-    <div class='question'>
-      <h2 class='title'>{{name}}</h2>
-      {{#picture}}
-        <div class="picture">{{#picture}}<div><img src="{{picture}}"></div>{{/picture}}</div>
-      {{/picture}}
-      {{#resource}}
-        {{> quiz_resource}}
-      {{/resource}}
-      {{> quiz_description}}
+    <div class='question row'>
+      <div class='span6'>
+        <h2 class='title'>{{name}}</h2>
+        {{#picture}}
+          <div class="picture">{{#picture}}<div><img src="{{picture}}"></div>{{/picture}}</div>
+        {{/picture}}
+        {{#resource}}
+          {{> quiz_resource}}
+        {{/resource}}
+        {{> quiz_description}}
+      </div>
+      <div class='span6'>
+        {{>quiz_pagination}}
+      </div>
     </div>
+
     <ul class="answers">
       {{#answers}}
         <li class="{{#if selected}}selected{{/if}} span4 media answer" id="answer_{{id}}" data-oahu-action="quiz.answer" data-oahu-opts="{{id}}">{{> quiz_answer}}</li>
@@ -71,6 +103,7 @@
     </ul>
   </div>
 </script>
+
 
 <script type="text/handlebars" data-oahu-template="quiz_intro">
   {{#account}}
@@ -87,13 +120,12 @@
 </script>
 
 <script type="text/handlebars" data-oahu-template="quiz_shares">
-  <!--
   <div class='shares'>
     <h3>Partager</h3>
-    <a class='btn share facebook' data-oahu-action="quiz.share" data-oahu-provider='facebook'><i class='icon'></i> Facebook</a>
-    <a class='btn share twitter' data-oahu-action="quiz.share" data-oahu-provider='twitter'><i class='icon'></i> Twitter</a>
+    <a class="btn btn-small share facebook btn-primary" data-oahu-action="quiz.invite"><i class='icon'></i> Inviter des amis</a>
+    <a class='btn btn-small share facebook btn-primary' data-oahu-action="quiz.share" data-oahu-provider='facebook'><i class='icon'></i> Partager</a>
+    <a class='btn btn-small share twitter btn-primary' data-oahu-action="quiz.share" data-oahu-provider='twitter'><i class='icon'></i> Partager</a>
   </div>
-  -->
 </script>
 
 <script type="text/handlebars" data-oahu-template="quiz_submitted">
@@ -106,8 +138,8 @@
   </p>
 
   <div class='actions'>
-    <a class="btn secondary btn-warning" data-oahu-action="quiz.reset">Modifier mes pronostics</a>
-    <a class="btn secondary btn-info" data-oahu-action="quiz.go_to_other">Pronostiquer les {{other}}</a>
+    <a class="btn btn-warning" data-oahu-action="quiz.reset">Modifier mes pronostics</a>
+    <a class="btn btn-info" data-oahu-action="quiz.go_to_other">Pronostiquer les {{other}}</a>
   </div>
 </script>
 
