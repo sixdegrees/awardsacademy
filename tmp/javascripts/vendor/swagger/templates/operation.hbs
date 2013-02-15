@@ -1,0 +1,158 @@
+(function() {
+  this.JST || (this.JST = {});
+  this.JST["vendor/swagger/templates/operation"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  helpers = helpers || Handlebars.helpers; data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n          <div class=\"section\">\n            <h2 class='title'>Implementation Notes</h2>\n            <p class='notes'>";
+  if (stack1 = helpers.notes) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.notes; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "</p>\n          </div>\n        ";
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  
+  return "\n          <div class=\"section\">\n            <h2 class='title'>Response Class</h2>\n            <p><span class=\"model-signature\" /></p>\n            <div class=\"content-type\" />\n          </div>\n        ";
+  }
+
+function program5(depth0,data) {
+  
+  
+  return "\n              <div style='margin:0;padding:0;display:inline'></div>\n              <h2 class='title'>Status Codes</h2>\n              <table class='fullwidth'>\n                  <thead>\n                  <tr>\n                      <th style=\"width: 410px; max-width:410px\">HTTP Status Code</th>\n                      <th>Reason</th>\n                  </tr>\n                  </thead>\n                  <tbody class=\"operation-status\">\n                  \n                  </tbody>\n              </table>\n            ";
+  }
+
+function program7(depth0,data) {
+  
+  
+  return "\n              ";
+  }
+
+function program9(depth0,data) {
+  
+  
+  return "\n              <div class='sandbox_header row'>\n                <div class=\"cell-12\">\n                  <input class='submit btn primary' name='commit' type='button' value='Try it out!' />\n                  <a href='#' class='response_hider' style='display:none'>Hide Response</a>\n                  <span class=\"response_throbber\"></span>\n                </div>\n              </div>\n            ";
+  }
+
+  buffer += "<ul class='operations' >\n  <li class='";
+  if (stack1 = helpers.httpMethod) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.httpMethod; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + " operation' id='";
+  if (stack1 = helpers.resourceName) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.resourceName; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "_";
+  if (stack1 = helpers.nickname) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.nickname; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "_";
+  if (stack1 = helpers.httpMethod) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.httpMethod; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "_";
+  if (stack1 = helpers.number) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.number; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "'>\n\n\n    <div class=\"row\">\n      <div class='cell-12'>\n        <a href='#!/";
+  if (stack1 = helpers.resourceName) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.resourceName; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "/";
+  if (stack1 = helpers.nickname) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.nickname; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "_";
+  if (stack1 = helpers.httpMethod) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.httpMethod; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "_";
+  if (stack1 = helpers.number) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.number; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "' class=\"toggleOperation label http_method ";
+  if (stack1 = helpers.httpMethod) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.httpMethod; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\">";
+  if (stack1 = helpers.httpMethod) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.httpMethod; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</a>\n        <span class='path'>\n          <a href='#!/";
+  if (stack1 = helpers.resourceName) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.resourceName; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "/";
+  if (stack1 = helpers.nickname) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.nickname; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "_";
+  if (stack1 = helpers.httpMethod) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.httpMethod; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "_";
+  if (stack1 = helpers.number) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.number; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "' class=\"toggleOperation\">";
+  if (stack1 = helpers.path) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.path; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</a>\n        </span>\n        <p class=\"operation_description float-right align-right\">\n          <a href='#!/";
+  if (stack1 = helpers.resourceName) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.resourceName; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "/";
+  if (stack1 = helpers.nickname) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.nickname; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "_";
+  if (stack1 = helpers.httpMethod) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.httpMethod; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "_";
+  if (stack1 = helpers.number) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.number; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "' class=\"toggleOperation\">";
+  if (stack1 = helpers.summary) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.summary; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "</a>\n        </p>\n      </div>\n    </div>\n\n\n    <div class='container' id='";
+  if (stack1 = helpers.resourceName) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.resourceName; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "_";
+  if (stack1 = helpers.nickname) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.nickname; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "_";
+  if (stack1 = helpers.httpMethod) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.httpMethod; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "_";
+  if (stack1 = helpers.number) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.number; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "_content' style='display:none'>\n\n\n        ";
+  stack1 = helpers['if'].call(depth0, depth0.notes, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n\n\n        ";
+  stack1 = helpers['if'].call(depth0, depth0.responseClass, {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n\n\n        <form accept-charset='UTF-8' class='sandbox section'>\n            <div style='margin:0;padding:0;display:inline'></div>\n            <h2 class='title'>Parameters</h2>\n            <table class='fullwidth'>\n                <thead>\n                <tr>\n                    <th style=\"width: 100px; max-width: 100px\"><p>Parameter</p></th>\n                    <th style=\"width: 310px; max-width: 310px\"><p>Value</p></th>\n                    <th style=\"width: 200px; max-width: 200px\"><p>Description</p></th>\n                    <th style=\"width: 320px; max-width: 330px\"><p>Data Type</p></th>\n                </tr>\n                </thead>\n                <tbody class=\"operation-params\">\n                </tbody>\n            </table>\n\n            ";
+  stack1 = helpers['if'].call(depth0, depth0.errorResponses, {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n            ";
+  stack1 = helpers['if'].call(depth0, depth0.isReadOnly, {hash:{},inverse:self.program(9, program9, data),fn:self.program(7, program7, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n        </form>\n\n\n        <div class='response section' style='display:none'>\n            <h4 class='title'>Request URL</h4>\n            <div class='block request_url'></div>\n            <h4 class='title'>Response Body</h4>\n            <div class='block response_body'></div>\n            <h4 class='title'>Response Code</h4>\n            <div class='block response_code'></div>\n            <h4 class='title'>Response Headers</h4>\n            <div class='block response_headers'></div>\n        </div>\n\n\n    </div>\n    </li>\n</ul>\n";
+  return buffer;
+  });
+  return this.JST["vendor/swagger/templates/operation"];
+}).call(this);
