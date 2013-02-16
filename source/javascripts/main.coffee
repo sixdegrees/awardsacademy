@@ -11,7 +11,7 @@ unless window.console and console.log
 
 class Oahu.Apps.LoginRedirect extends Oahu.Apps.Identity
   namespace:'login_redirect'
-  attrs: ["game", "game_name"]
+  attrs: ["game", "game_name", 'image']
   logon: (e, ev, opts)->
     href=$(e).attr('href')
     ev.preventDefault()
@@ -34,11 +34,11 @@ class Oahu.Apps.CaQuiz extends Oahu.Apps.Quiz
     window.location.href = if @other is "Cesar" then "/cesar" else "/oscars"
 
   share: ()=>
-    name = if @account?.name then "#{@account.name} a rendu son verdict !" else "l'Award Academy 2013"
-    caption = if @account?.name and @self? then "#{@account.name} a pronostiqué les #{@self}. Jouez vous aussi et voyez si vous êtes meilleur que lui" else "Jouez à l'Award Academy !"
+    name = if Oahu.account?.name then "#{Oahu.account.name} a rendu son verdict !" else "l'Award Academy 2013"
+    caption = if Oahu.account?.name and @self? then "#{Oahu.account.name} a pronostiqué les #{@self}. Jouez vous aussi et voyez si vous êtes meilleur que lui" else "Jouez à l'Award Academy !"
 
     Oahu.ui.share 'facebook'
-      link: 'http://facebook.com/silenzio/'
+      link: 'https://www.facebook.com/AgenceSilenzio/app_140923659406143'
       name: name
       source: @thumb
       caption: caption

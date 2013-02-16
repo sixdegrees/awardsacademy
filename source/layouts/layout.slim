@@ -2,15 +2,15 @@ doctype html
 html
   head
     meta charset='utf-8'
-    title=data.strings.title
-    meta name='viewport' content='width=980'
-    meta name='description' content=data.strings.description
-    meta property='og:title' content='hull: build social apps in minutes, not weeks'
+    title The Awards Academy
+    meta name='description' content='The Awards Academy'
+    meta property='og:title' content='The Awards Academy'
     meta property='og:type' content='company'
     meta property='og:site_name' content='hull'
     meta property='og:url' content='http://hull.io'
     meta property='og:image' content='http://hull.io/assets/hull.jpg'
-    meta property='og:description' content=data.strings.description
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta property='og:description' content='The Awards Academy'
     == stylesheet_link_tag '//app-staging.oahu.fr/assets/oahu.css', :media=>'all'
     == stylesheet_link_tag '//app-staging.oahu.fr/assets/oahu-apps.css', :media=>'all'
     == stylesheet_link_tag 'style', :media=>'all'
@@ -37,7 +37,15 @@ html
       Oahu.init({ 
         appId: '51194b28873b0c4ea00021bf', 
         debug: true,
-        verbose: true
+        verbose: true,
+        facebook: {
+          appId: '140923659406143',
+          status: true,
+          xfbml: true,
+          cookie: true
+        }
+      },function(){
+        FB.Canvas.setAutoGrow();
       });
     })
 

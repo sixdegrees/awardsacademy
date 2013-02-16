@@ -28,7 +28,7 @@
   <a class='btn btn-block btn-primary' href="/{{game}}"
   {{^account}}
     data-oahu-action="login_redirect.logon" data-oahu-provider="facebook"
-  {{/account}}>Pronostiquez les {{game_name}}</a>
+  {{/account}}><img src="{{image}}"/><span>Pronostiquez les {{game_name}}</span></a>
 </script>
 
 
@@ -81,7 +81,7 @@
 <script type="text/handlebars" data-oahu-template="quiz_entry">
   <div class='entry' id='entry_{{id}}' data-entry-id='{{id}}'>
     <div class='question row'>
-      <div class='span6'>
+      <div class='span7'>
         <h2 class='title'>{{name}}</h2>
         {{#picture}}
           <div class="picture">{{#picture}}<div><img src="{{picture}}"></div>{{/picture}}</div>
@@ -91,10 +91,12 @@
         {{/resource}}
         {{> quiz_description}}
       </div>
-      <div class='span6'>
+      <div class='span5 text-right'>
         {{>quiz_pagination}}
       </div>
     </div>
+
+    <hr/>
 
     <ul class="answers">
       {{#answers}}
@@ -109,6 +111,7 @@
   {{#account}}
   <div class='actions'>
     <h1 class='text-center'>Vous êtes prêts ?</h1>
+    <hr/>
     <a class="btn btn-info btn-block btn-large" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Démarrer les pronostics</a>
   </div>
   {{/account}}
@@ -124,23 +127,27 @@
 </script>
 
 <script type="text/handlebars" data-oahu-template="quiz_submitted">
-  <p>Bravo ! Vos pronostics sont bien enregistrés.</p>
-  <p>
-    <a data-oahu-action="quiz.show_printable" class='btn btn-primary'>Imprimer Mes Pronostics</a>
-  </p>
-  <p>
-    <em>(On vous a fait une jolie présentation pour vous faire mousser à votre soirée César/Oscars)</em>
-  </p>
+  <p class='lead'>Bravo ! Vos pronostics sont bien enregistrés.</p >
 
-  <div class='actions'>
-    <a class="btn btn-warning" data-oahu-action="quiz.restart">Modifier mes pronostics</a>
-    <a class="btn btn-info" data-oahu-action="quiz.go_to_other">Pronostiquer les {{other}}</a>
+  <div class='actions row-fluid'>
+    <div class='span4'>
+      <a data-oahu-action="quiz.show_printable" class='btn btn-block btn-primary'> Imprimer Mes Pronostics </a>
+      <p><em>(On vous a fait une jolie présentation pour vous faire mousser à votre soirée César/Oscars)</em></p>
+    </div>
+    <div class='span4'>
+      <a class="btn btn-block btn-warning" data-oahu-action="quiz.restart">Modifier mes pronostics</a>
+      <p>&nbsp;</p>
+    </div>
+    <div class='span4'>
+      <a class="btn btn-block btn-info" data-oahu-action="quiz.go_to_other">Pronostiquer les {{other}}</a>
+      <p>&nbsp;</p>
+    </div>
   </div>
   <div class='shares'>
-    <h3>Partager</h3>
-    <a class="btn btn-small share facebook btn-primary" data-oahu-action="quiz.invite"><i class='icon'></i> Inviter des amis</a>
-    <a class='btn btn-small share facebook btn-primary' data-oahu-action="quiz.share" data-oahu-provider='facebook'><i class='icon'></i> Partager</a>
-    <a class='btn btn-small share twitter btn-primary' data-oahu-action="quiz.share" data-oahu-provider='twitter'><i class='icon'></i> Tweeter</a>
+    <hr/>
+    <p class='lead'>Partager</p>
+    <a class="btn btn-small share facebook" data-oahu-action="quiz.invite"><i class='icon'></i> Inviter des amis</a>
+    <a class='btn btn-small share facebook' data-oahu-action="quiz.share" data-oahu-provider='facebook'><i class='icon'></i> Partager</a>
   </div>
 </script>
 
@@ -150,14 +157,14 @@
     <ul class="friends thumbnails">
       {{#ifEqual provider "oahu"}}
         {{#friends}}
-          <li class='span3 thumbnail'>
+          <li class='span4'>
             <div class="media">
               <div class="pull-left">
                 <img class="media-object" src="{{picture}}">
               </div>
               <div class="media-body">
-                <h4 class="media-heading">{{name}}</h4>
-                <strong>A pronostiqué : </strong>
+                <h5 class="media-heading">{{name}}</h5>
+                <p>A pronostiqué :</p>
                 {{#key_value badges}}
                   <span class="label">Les {{value.name}}</span>
                 {{/key_value}}

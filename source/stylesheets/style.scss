@@ -1,5 +1,5 @@
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
 
 @import "vendor/vendor";
 @import "partials/core/core";
@@ -13,7 +13,7 @@
 }
 
 a, a:visited{
-  color:#FFB745;
+  color:#86815F;
 }
 
 body{
@@ -21,8 +21,15 @@ body{
   font-family: 'Open Sans', sans-serif;
 }
 
+.navbar .nav li a{
+  font-weight: 700;
+  font-size: 12px;
+}
+
 .hero-unit{
   background: none;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .section{
@@ -48,6 +55,7 @@ body{
 .banner{
   height: 180px;
   margin-bottom: 0;
+  margin:0 0;
   &.cesar{
     @include background-image(image-url("/images/cesar_header.jpg"));
   }
@@ -56,7 +64,7 @@ body{
   }
   background-color: black;
   background-position:  center;
-  background-repeat: repeat-x;
+  background-repeat: no-repeat;
 }
 
 #logo{
@@ -102,10 +110,9 @@ body{
 .page_footer{
   text-align: center;
   padding: 30px 0;
-  margin-top: 70px;
+  margin:70px 0 0 0;
   border-top: 1px solid #E5E5E5;
   background-color: whiteSmoke;
-  margin-bottom: 0px;
   a{
     display: block;
     padding: 10px;
@@ -117,41 +124,47 @@ body{
 }
 
 .oahu.layout{
+  .description{
+    font-size: 13px;
+  }
   &.quiz{
     position: relative;
     .header{
       display: none;
     }
     .page_counter{
-      position: absolute;
-      right: 0;
-      top: 28px;
       font-weight: 900;
     }
     .pagination{
       .btn{
-        padding: 10px 15px;
+        padding: 10px 13px;
+        &.disabled{
+          display: none;
+        }
       }
     }
   }
   .entry{
     .answer{
       background: #FFF;
-       &:hover{
-        background: #3A3C44;
+      $color:#68644A;
+      &:hover{
+        background:lighten($color, 20%);
         color: #FFF;
-       }
+      }
       &.selected{
-        background: #777A88;
+        color: #FFF;
+        // background: #777A88;
+        background:darken($color, 10%);
       }
       @include transition(all 0.2s ease-out);
       
     }
   }
   .answer{
-    height: 154px;
+    height: 132px;
     margin:6px;
-    padding:7px;
+    padding:0;
     cursor: pointer;
     box-sizing:border-box;
     @include border-radius(3px);
@@ -159,9 +172,11 @@ body{
       font-weight: bold;
     }
     img.media-object{
-      width:100px;
-      height: 140px;
-      @include border-radius(2px);
+      // max-height: 140px;
+      max-width: 100px;
+    }
+    .media-body{
+      margin:5px;
     }
     .description{
       font-size: 10px;
@@ -242,16 +257,23 @@ body{
   font-weight: 700;
   // min-width: 200px
 }
+@mixin btn_color($c){
+  background: $c;
+  &:hover{
+    background: lighten($c, 10%);
+  }
+}
 .btn-primary{
-  background: #404040;
+  @include btn_color(#404040);
 }
 
 .btn-warning{
   background: #F60;
+  @include btn_color(#68644A);
 }
 
 .btn-info{
-  background: #2F96B4;
+  @include btn_color(#313C4E);
 }
 
 .btn-info, .btn-warning, .btn-primary{
@@ -264,6 +286,72 @@ body{
  }
 .connect{
   .btn{
+    color: #CEC8C8;
+    img{
+      width: 100%;
+      opacity: 0.8;
+      @include transition(all 0.3s ease-out);
+    }
+    &:hover{
+      img{
+        opacity: 1;
+        @include scale3d(1.02,1.02,1);
+      }
+    }
+    overflow: hidden;
     @include border-radius(0);
+    @include box-shadow(0 0 10px rgba(0,0,0,0.2));
+    padding: 0 0 15px 0;
+    span{
+      display: block;
+      margin:10px 10px 0 10px ;
+    }
+  }
+}
+@media (max-width: 480px){
+  .banner{
+    height: 120px;
+  }
+  .pagination{
+    position: fixed;
+    bottom: -20px;
+    left: -20px;
+    right: -20px;
+    padding: 20px 40px;
+    background: rgba(0,0,0,0.7);
+  }
+  .banner{
+    background-size: cover;
+    margin:0 -20px;
+  }
+  .page_footer{
+    margin:70px -20px 0 -20px;
+  }
+}
+@media (max-width: 767px){
+  .oahu.layout .entry .answer{
+    height: 205px;
+    float: left;
+    margin:0;
+    padding: 0;
+    overflow: hidden;
+    clear: none;
+    width:90px;
+    @include border-radius(0);
+    padding: 2px;
+    h4{
+      font-size: 10px;
+    }
+    .description{
+      font-size: 9px;
+    }
+    .pull-left{
+      float: none;
+      margin:0;
+    }
+    img.media-object{
+      max-height: 120px;
+      width: 100%;
+    }
   }
 }
