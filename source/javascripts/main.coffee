@@ -74,12 +74,14 @@ class Oahu.Apps.CaQuiz extends Oahu.Apps.Quiz
 
 class Oahu.Apps.OscarQuiz extends Oahu.Apps.CaQuiz
   namespace:'cesar_quiz'
+  message: "Vous pourrez modifier votre pronostic jusqu'au Dimanche 24 à 18h"
   self: 'Oscars'
   other:'Cesar'
   thumb: 'http://app-staging.oahu.fr/img/511e4add873b0c4e5f007a95/medium'
 
 class Oahu.Apps.CesarQuiz extends Oahu.Apps.CaQuiz
   namespace:'oscar_quiz'
+  message: "Vous pourrez modifier votre pronostic jusqu'au Vendredi 22 à 18h"
   self: 'Cesar'
   other:'Oscars'
   thumb: 'http://app-staging.oahu.fr/img/511e514b873b0c4f55007cff/medium'

@@ -111,6 +111,7 @@
   {{#account}}
   <div class='actions'>
     <h1 class='text-center'>Vous êtes prêts ?</h1>
+    <p class='lead text-center'>{{../message}}</p >
     <hr/>
     <a class="btn btn-info btn-block btn-large" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Démarrer les pronostics</a>
   </div>
@@ -121,14 +122,32 @@
       <a class="btn btn-primary facebook" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Participer avec Facebook</a>
     </div>
   {{/account}}
+  <hr/>
+  <p class='well text-center'>Pas de panique, votre palmarès ne sera pas rendu public. Il restera votre petit secret… Seul votre score final sera visible après les cérémonies</p>
 </script>
 
 <script type="text/handlebars" data-oahu-template="quiz_shares">
 </script>
 
-<script type="text/handlebars" data-oahu-template="quiz_submitted">
-  <p class='lead'>Bravo ! Vos pronostics sont bien enregistrés.</p >
+<script type="text/handlebars" data-oahu-template="quiz_finished">
+{{#account}}
+  <p class='lead'>Bravo, c'est terminé. Vous devez enregistrer votre participation pour qu'elle soit prise en compte.</p>
+  <div class='actions'><a class="btn btn-primary" data-oahu-action="quiz.submit">Enregistrer ma participation ! </a></div>
+{{/account}}
+{{^account}}
+  Bravo, vous avez terminé le quiz. Inscrivez vous pour enregistrer votre participation !
+  <div class='actions'><a class="btn primary" data-oahu-action="quiz.submit">M'inscrire</a></div>
+{{/account}}
+  <hr/>
+  <p class='well text-center'>Pas de panique, votre palmarès ne sera pas rendu public. Il restera votre petit secret… Seul votre score final sera visible après les cérémonies</p>
+</script>
 
+<script type="text/handlebars" data-oahu-template="quiz_submitted">
+  <p class='lead'>
+    <strong>Bravo ! Vos pronostics sont bien enregistrés.</strong>
+    <br/>
+    {{message}}
+  </p>
   <div class='actions row-fluid'>
     <div class='span4'>
       <a data-oahu-action="quiz.show_printable" class='btn btn-block btn-primary'> Imprimer Mes Pronostics </a>
@@ -156,7 +175,7 @@
     <h5>Vos amis y ont joué :</h5> 
     <ul class="friends thumbnails">
       {{#ifEqual provider "oahu"}}
-        {{#friends}}
+        {{#friends}} 
           <li class='span4'>
             <div class="media">
               <div class="pull-left">

@@ -1,0 +1,365 @@
+# AMOUR , réalisé par Michael Haneke
+q.entries[0].answers[0].resource_id="511a6899873b0c4f5500353c"
+
+# ARGO, réalisé par Ben Affleck 
+q.entries[0].answers[1].resource_id="511a6899873b0c4ea0003532"
+
+# LES BETES DU SUD SAUVAGE , réalisé par Benh Zeitlin
+q.entries[0].answers[2].resource_id="511b65cb873b0c4f55004e7a"
+
+# DJANGO UNCHAINED , réalisé par Quentin Tarantino
+q.entries[0].answers[3].resource_id="511b65be873b0c4f55004e74"
+
+# LES MISERABLES , réalisé par Tom Hooper
+q.entries[0].answers[4].resource_id="511b65cc873b0c4e5f004d30"
+
+# L’ODYSÉE DE PI , réalisé par Ang Lee
+q.entries[0].answers[5].resource_id="511b65d2873b0c4ea0004e68"
+
+# LINCOLN, réalisé par Steven Spielberg 
+q.entries[0].answers[6].resource_id="511b65d1873b0c4f55004e7d"
+
+# HAPPINESS THERAPY , réalisé par David O. Russel
+q.entries[0].answers[7].resource_id="511b65c1873b0c4f55004e75"
+
+# ZERO DARK THIRTY , réalisé par Kathryn Bigelow 
+q.entries[0].answers[8].resource_id="511b65ea873b0c4e5f004d3d"
+
+# Michael Haneke, pour AMOUR
+q.entries[1].answers[0].resource_id="511a6899873b0c4f5500353c"
+
+# Ang Lee , pour L'ODYSSEE DE PI
+q.entries[1].answers[1].resource_id="511b65d2873b0c4ea0004e68"
+
+# David O. Russell , pour HAPPINESS THERAPY
+q.entries[1].answers[2].resource_id="511b65c1873b0c4f55004e75"
+
+# Steven Spielberg , pour LINCOLN
+q.entries[1].answers[3].resource_id="511b65d1873b0c4f55004e7d"
+
+# Benh Zeitlin , pour LES BETES DU SUD SAUVAGE
+q.entries[1].answers[4].resource_id="511b65cb873b0c4f55004e7a"
+
+# Bradley Cooper , dans HAPPINESS THERAPY
+q.entries[2].answers[0].resource_id="511b65c1873b0c4f55004e75"
+
+# Daniel Day-Lewis , dans LINCOLN
+q.entries[2].answers[1].resource_id="511b65d1873b0c4f55004e7d"
+
+# Hugh Jackman , dans LES MISERABLES
+q.entries[2].answers[2].resource_id="511b65cc873b0c4e5f004d30"
+
+# Joaquin Phoenix , dans THE MASTER
+q.entries[2].answers[3].resource_id="511b65e9873b0c4e5f004d3b"
+
+# Denzel Washington , dans FLIGHT
+q.entries[2].answers[4].resource_id="511b65bf873b0c4ea0004e5a"
+
+# Jessica Chastain , dans ZERO DARK THIRTY
+q.entries[3].answers[0].resource_id="511b65ea873b0c4e5f004d3d"
+
+# Jennifer Lawrence , dans HAPPINESS THERAPY
+q.entries[3].answers[1].resource_id="511b65c1873b0c4f55004e75"
+
+# Emmanuelle Riva , dans AMOUR
+q.entries[3].answers[2].resource_id="511a6899873b0c4f5500353c"
+
+# Quvenzhané Wallis , dans LES BETES DU SUD SAUVAGE
+q.entries[3].answers[3].resource_id="511b65cb873b0c4f55004e7a"
+
+# Naomi Watts , dans THE IMPOSSIBLE
+q.entries[3].answers[4].resource_id="511b65e5873b0c4f55004e83"
+
+# REBELLE , réalisé par Mark Andrews et Brenda Chapman
+q.entries[4].answers[0].resource_id="511b65dd873b0c4f55004e7f"
+
+# FRANKENWEENIE, réalisé par Tim Burton
+q.entries[4].answers[1].resource_id="511b65bf873b0c4ea0004e5b"
+
+# L'ETRANGE POUVOIR DE NORMAN, réalisé par Sam Fell et Chris Butler
+q.entries[4].answers[2].resource_id="511b65d0873b0c4ea0004e66"
+
+# LES PIRATES ! BONS A RIEN, MAUVAIS EN TOUT , réalisé par Peter Lord
+q.entries[4].answers[3].resource_id="511b65ce873b0c4e5f004d32"
+
+# LES MONDES DE RALPH, réalisé par Rich Moore
+q.entries[4].answers[4].resource_id="511b65cd873b0c4e5f004d31"
+
+# Amy Adams, dans THE MASTER
+q.entries[5].answers[0].resource_id="511b65e9873b0c4e5f004d3b"
+
+# Sally Field , dans LINCOLN
+q.entries[5].answers[1].resource_id="511b65d1873b0c4f55004e7d"
+
+# Anne Hathaway , dans LES MISÉRABLES
+q.entries[5].answers[2].resource_id="511b65cc873b0c4e5f004d30"
+
+# Helen Hunt , dans THE SESSIONS
+q.entries[5].answers[3].resource_id="511b65e7873b0c4ea0004e6d"
+
+# Jacki Weaver , dans HAPPINESS THERAPY
+q.entries[5].answers[4].resource_id="511b65c1873b0c4f55004e75"
+
+# Alan Arkin , dans ARGO
+q.entries[6].answers[0].resource_id="511a6899873b0c4ea0003532"
+
+# Robert De Niro , dans HAPPINESS THERAPY
+q.entries[6].answers[1].resource_id="511b65c1873b0c4f55004e75"
+
+# Philip Seymour Hoffman , dans THE MASTER
+q.entries[6].answers[2].resource_id="511b65e9873b0c4e5f004d3b"
+
+# Tommy Lee Jones , dans LINCOLN
+q.entries[6].answers[3].resource_id="511b65d1873b0c4f55004e7d"
+
+# Christoph Waltz , dans DJANGO UNCHAINED
+q.entries[6].answers[4].resource_id="511b65be873b0c4f55004e74"
+
+# Seamus McGarvey , pour ANNA KARENINE
+q.entries[7].answers[0].resource_id="511b65b4873b0c4ea0004e56"
+
+# Robert Richardson , pour DJANGO UNCHAINED
+q.entries[7].answers[1].resource_id="511b65be873b0c4f55004e74"
+
+# Claudio Miranda , pour L’ODYSÉE DE PI
+q.entries[7].answers[2].resource_id="511b65d2873b0c4ea0004e68"
+
+# Janusz Kaminski , pour LINCOLN
+q.entries[7].answers[3].resource_id="511b65d1873b0c4f55004e7d"
+
+# Roger Deakins , pour SKYFALL
+q.entries[7].answers[4].resource_id="511b65de873b0c4e5f004d39"
+
+# Dario Marianelli , pour ANNA KARENINE
+q.entries[8].answers[0].resource_id="511b65b4873b0c4ea0004e56"
+
+# Alexandre Desplat , pour ARGO
+q.entries[8].answers[1].resource_id="511a6899873b0c4ea0003532"
+
+# Mychael Danna , pour L’ODYSÉE DE PI
+q.entries[8].answers[2].resource_id="511b65d2873b0c4ea0004e68"
+
+# John Williams , pour LINCOLN
+q.entries[8].answers[3].resource_id="511b65d1873b0c4f55004e7d"
+
+# Thomas Newman , pour SKYFALL
+q.entries[8].answers[4].resource_id="511b65de873b0c4e5f004d39"
+
+# William Goldenberg , pour ARGO
+q.entries[9].answers[0].resource_id="511a6899873b0c4ea0003532"
+
+# Tim Squyres , pour L’ODYSÉE DE PI
+q.entries[9].answers[1].resource_id="511b65d2873b0c4ea0004e68"
+
+# Michael Kahn , pour LINCOLN
+q.entries[9].answers[2].resource_id="511b65d1873b0c4f55004e7d"
+
+# Jay Cassidy and Crispin Struthers , pour HAPPINESS THERAPY
+q.entries[9].answers[3].resource_id="511b65c1873b0c4f55004e75"
+
+# Dylan Tichenor and William Goldenberg , pour ZERO DARK THIRTY
+q.entries[9].answers[4].resource_id="511b65ea873b0c4e5f004d3d"
+
+# AMOUR, Autriche
+q.entries[10].answers[0].resource_id="511a6899873b0c4f5500353c"
+
+# KON-TIKI, Norvège
+q.entries[10].answers[1].resource_id="511b65c9873b0c4e5f004d2f"
+
+# NO, Chili
+q.entries[10].answers[2].resource_id="511b65d7873b0c4e5f004d36"
+
+# A ROYAL AFFAIR, Danemark
+q.entries[10].answers[3].resource_id="511a68ba873b0c4f5500354f"
+
+# WAR WITCH, Canada
+q.entries[10].answers[4].resource_id="511b65ea873b0c4e5f004d3c"
+
+# 5 BROKEN CAMERAS , réalisé par Emad Burnat et Guy Davidi
+q.entries[11].answers[0].resource_id="511b65b1873b0c4e5f004d25"
+
+# THE GATEKEEPERS , réalisé par Dror Moreh, Philippa Kowarsky et Estelle Fialon
+q.entries[11].answers[1].resource_id="511b65e5873b0c4e5f004d3a"
+
+# HOW TO SURVIVE A PLAGUE , réalisé par David France et Howard Gertler
+q.entries[11].answers[2].resource_id="511b65c6873b0c4ea0004e61"
+
+# THE INVISIBLE WAR , réalisé par Kirby Dick et Amy Ziering
+q.entries[11].answers[3].resource_id="511b65e6873b0c4f55004e84"
+
+# SUGAR MAN , réalisé par Malik Bendjelloul et Simon Chinn
+q.entries[11].answers[4].resource_id="511b65e0873b0c4f55004e81"
+
+# AMOUR , écrit par Michael Haneke
+q.entries[12].answers[0].resource_id="511a6899873b0c4f5500353c"
+
+# DJANGO UNCHAINED , écrit par Quentin Tarantino
+q.entries[12].answers[1].resource_id="511b65be873b0c4f55004e74"
+
+# FLIGHT , écrit par John Gatins
+q.entries[12].answers[2].resource_id="511b65bf873b0c4ea0004e5a"
+
+# MOONRISE KINGDOM , écrit par Wes Anderson et Roman Coppola
+q.entries[12].answers[3].resource_id="511b65d6873b0c4e5f004d35"
+
+# ZERO DARK THIRTY , écrit par Mark Boal
+q.entries[12].answers[4].resource_id="511b65ea873b0c4e5f004d3d"
+
+# ARGO , scénario de Chris Terrio
+q.entries[13].answers[0].resource_id="511a6899873b0c4ea0003532"
+
+# LES BETES DU SUD SAUVAGE , scénario de Lucy Alibar & Benh Zeitlin
+q.entries[13].answers[1].resource_id="511b65cb873b0c4f55004e7a"
+
+# L’ODYSÉE DE PI , scénario de David Magee
+q.entries[13].answers[2].resource_id="511b65d2873b0c4ea0004e68"
+
+# LINCOLN , scénario de Tony Kushner
+q.entries[13].answers[3].resource_id="511b65d1873b0c4f55004e7d"
+
+# HAPPINESS THERAPY , scénario de David O. Russell
+q.entries[13].answers[4].resource_id="511b65c1873b0c4f55004e75"
+
+# ANNA KARENINE, 
+q.entries[14].answers[0].resource_id="511b65b4873b0c4ea0004e56"
+
+# LE HOBBIT : UN VOYAGE INATTENDU , 
+q.entries[14].answers[1].resource_id="511b65c9873b0c4f55004e79"
+
+# LES MISÉRABLES, 
+q.entries[14].answers[2].resource_id="511b65cc873b0c4e5f004d30"
+
+# L’ODYSÉE DE PI , 
+q.entries[14].answers[3].resource_id="511b65d2873b0c4ea0004e68"
+
+# LINCOLN, 
+q.entries[14].answers[4].resource_id="511b65d1873b0c4f55004e7d"
+
+# Jacqueline Durran , pour ANNA KARENINE
+q.entries[15].answers[0].resource_id="511b65b4873b0c4ea0004e56"
+
+# Paco Delgado , pour LES MISERABLES
+q.entries[15].answers[1].resource_id="511b65cc873b0c4e5f004d30"
+
+# Joanna Johnston , pour LINCOLN
+q.entries[15].answers[2].resource_id="511b65d1873b0c4f55004e7d"
+
+# Eiko Ishioka , pour MIRROR MIRROR
+q.entries[15].answers[3].resource_id="511b65d5873b0c4e5f004d34"
+
+# Colleen Atwood , pour BLANCHE NEIGE ET LE CHASSEUR 
+q.entries[15].answers[4].resource_id="511b65b7873b0c4ea0004e58"
+
+# Howard Berger, Peter Montagna et Martin Samuel , pour HITCHCOCK
+q.entries[16].answers[0].resource_id="511b65c5873b0c4f55004e76"
+
+# Peter Swords King, Rick Findlater et Tami Lane , pour LE HOBBIT : UN VOYAGE INATTENDU
+q.entries[16].answers[1].resource_id="511b65c9873b0c4f55004e79"
+
+# Lisa Westcott et Julie Dartnell , pour LES MISERABLES
+q.entries[16].answers[2].resource_id="511b65cc873b0c4e5f004d30"
+
+# Before my time , dans CHASING ICE
+q.entries[17].answers[0].resource_id="511b65b9873b0c4f55004e71"
+
+# Everybody needs a best friend  , dans TED
+q.entries[17].answers[1].resource_id="511b65e1873b0c4ea0004e6c"
+
+# Pi’s lullaby , dans L’ODYSÉE DE PI
+q.entries[17].answers[2].resource_id="511b65d2873b0c4ea0004e68"
+
+# Skyfall , dans SKYFALL 
+q.entries[17].answers[3].resource_id="511b65de873b0c4e5f004d39"
+
+# Suddenly  , dans LES MISERABLES
+q.entries[17].answers[4].resource_id="511b65cc873b0c4e5f004d30"
+
+# Erik Aadahl et Ethan Van der Ryn , pour ARGO
+q.entries[18].answers[0].resource_id="511a6899873b0c4ea0003532"
+
+# Wylie Stateman , pour DJANGO UNCHAINED
+q.entries[18].answers[1].resource_id="511b65be873b0c4f55004e74"
+
+# Eugene Gearty et Philip Stockton , pour L’ODYSEE DE PI
+q.entries[18].answers[2].resource_id="511b65d2873b0c4ea0004e68"
+
+# Per Hallberg et Karen Baker Landers , pour SKYFALL
+q.entries[18].answers[3].resource_id="511b65de873b0c4e5f004d39"
+
+# Paul N.J. Ottosson , pour ZERO DARK THIRTY
+q.entries[18].answers[4].resource_id="511b65ea873b0c4e5f004d3d"
+
+# John Reitz, Gregg Rudloff and Jose Antonio Garcia , pour ARGO
+q.entries[19].answers[0].resource_id="511a6899873b0c4ea0003532"
+
+# Andy Nelson, Mark Paterson and Simon Hayes , pour LES MISÉRABLES
+q.entries[19].answers[1].resource_id="511b65cc873b0c4e5f004d30"
+
+# Ron Bartlett, D.M. Hemphill and Drew Kunin , pour L’ODYSÉE DE PI
+q.entries[19].answers[2].resource_id="511b65d2873b0c4ea0004e68"
+
+# Andy Nelson, Gary Rydstrom and Ronald Judkins , pour LINCOLN
+q.entries[19].answers[3].resource_id="511b65d1873b0c4f55004e7d"
+
+# Scott Millan, Greg P. Russell and Stuart Wilson , pour SKYFALL
+q.entries[19].answers[4].resource_id="511b65de873b0c4e5f004d39"
+
+# LE HOBBIT : UN VOYAGE INATTENDU , 
+q.entries[20].answers[0].resource_id="511b65c9873b0c4f55004e79"
+
+# L’ODYSÉE DE PI , 
+q.entries[20].answers[1].resource_id="511b65d2873b0c4ea0004e68"
+
+# AVENGERS , 
+q.entries[20].answers[2].resource_id="511b65b6873b0c4f55004e70"
+
+# PROMETHEUS , 
+q.entries[20].answers[3].resource_id="511b65db873b0c4ea0004e6a"
+
+# BLANCHE-NEIGE ET LE CHASSEUR , 
+q.entries[20].answers[4].resource_id="511b65b7873b0c4ea0004e58"
+
+# ASAD , réalisé par Bryan Buckley et Mino Jarjoura
+q.entries[21].answers[0].resource_id="511b65b5873b0c4f55004e6f"
+
+# BUZKASHI BOYS, réalisé par Sam French et Ariel Nasr
+q.entries[21].answers[1].resource_id="511b65b8873b0c4e5f004d28"
+
+# CURFEW , réalisé par Shawn Christensen
+q.entries[21].answers[2].resource_id="511b65bc873b0c4ea0004e59"
+
+# DEATH OF A SHADOW , réalisé par Tom Van Avermaet et Ellen De Waele
+q.entries[21].answers[3].resource_id="511b65bc873b0c4f55004e73"
+
+# HENRY , réalisé par Yan England
+q.entries[21].answers[4].resource_id="511b65c4873b0c4e5f004d2c"
+
+# ADAM AND DOG , réalisé par Minkyu Lee
+q.entries[22].answers[0].resource_id="511b65b2873b0c4e5f004d26"
+
+# FRESH GUACAMOLE , réalisé par PES
+q.entries[22].answers[1].resource_id="511b65c0873b0c4e5f004d2b"
+
+# HEAD OVER HEELS , réalisé par Timothy Reckart et Fodhla Cronin O’Reilly
+q.entries[22].answers[2].resource_id="511b65c3873b0c4ea0004e5c"
+
+# MAGGIE SIMPSON IN “THE LONGEST DAYCARE” , réalisé par David Silverman
+q.entries[22].answers[3].resource_id="511b65d4873b0c4f55004e7e"
+
+# PAPERMAN , réalisé par John Kahrs
+q.entries[22].answers[4].resource_id="511b65da873b0c4e5f004d38"
+
+# INOCENTE , réalisé par Sean Fine et Andrea Nix Fine
+q.entries[23].answers[0].resource_id="511b65c7873b0c4f55004e77"
+
+# KINGS POINT , réalisé par Sari Gilman et Jedd Wider
+q.entries[23].answers[1].resource_id="511b65c8873b0c4f55004e78"
+
+# MONDAYS AT RACINE , réalisé par Cynthia Wade et Robin Honan
+q.entries[23].answers[2].resource_id="511bac18873b0c4e5f005413"
+
+# OPEN HEART , réalisé par Kief Davidson et Cori Shepherd Stern
+q.entries[23].answers[3].resource_id="511b65d8873b0c4e5f004d37"
+
+# REDEMPTION , réalisé par Jon Alpert et Matthew o’Neill
+q.entries[23].answers[4].resource_id="511b65de873b0c4f55004e80"
