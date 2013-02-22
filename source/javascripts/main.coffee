@@ -79,17 +79,27 @@ class Oahu.Apps.OscarQuiz extends Oahu.Apps.CaQuiz
   other:'Cesar'
   thumb: 'http://app-staging.oahu.fr/img/511e4add873b0c4e5f007a95/medium'
 
+class Oahu.Apps.CesarQuiz extends Oahu.Apps.CaQuiz
+  namespace:'oscar_quiz'
+  message: "Vous pourrez modifier votre pronostic jusqu'au Vendredi 22 à 18h"
+  self: 'Cesar'
+  other:'Oscars'
+  thumb: 'http://app-staging.oahu.fr/img/511e514b873b0c4f55007cff/medium'
+
 Oahu.Apps.register "leaders", {
   namespace      : 'leaders'
   templates      : ['leaders']
   refresh_events: ['oahu:account:success','push:player:badge:update']
+  attrs:['method', 'limit']
+
+  limit:25
 
   getData: (cb)->
-    Oahu.app.getLeaderboard {id:@id}, (leaders)=>
-      @leaders = leaders.players
+    Oahu.app.getLeaderboard {id:@id, method:@method, limit:@limit}, (leaderboard)=>
+      @leaderboard = leaderboard
       cb.call(@)
 }
- 
+
 Oahu.Apps.register "answers", {
   namespace      : 'answers'
   templates      : ['answers', 'quiz_answer', 'quiz_resource', 'quiz_description']
@@ -108,11 +118,4 @@ Oahu.Apps.register "answers", {
       }
     cb.call(@)
 }
-
-class Oahu.Apps.CesarQuiz extends Oahu.Apps.CaQuiz
-  namespace:'oscar_quiz'
-  message: "Vous pourrez modifier votre pronostic jusqu'au Vendredi 22 à 18h"
-  self: 'Cesar'
-  other:'Oscars'
-  thumb: 'http://app-staging.oahu.fr/img/511e514b873b0c4f55007cff/medium'
 

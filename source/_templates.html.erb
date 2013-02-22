@@ -1,71 +1,5 @@
-<script type='text/handlebars' data-oahu-template="quiz_printable">
-  <div class='row answers_headers'>
-    <div class='span8'>
-      <h1>Les votes de {{#account}}{{name}}{{/account}} pour les {{self}}</h1>
-    </div>
-    <div class='span4'>
-      <h4>
-        <a class="btn secondary" data-oahu-action="quiz.do_print">Imprimer</a>
-      </h4>
-    </div>
-  </div>
-  <div class='row user_answers'>
-    {{#answers_details}}
-      <div class='span4'>
-        <h4>{{name}}</h4>
-        <div class='media answer'>
-          {{#response}}
-            {{> quiz_answer}}
-          {{/response}}
-        </div>
-      </div>
-    {{/answers_details}}
-  </div>
-  <a class="btn secondary" data-oahu-action="quiz.do_print">Imprimer</a>
-</script>
-
-<script type='text/handlebars' data-oahu-template="identity">
-  <a class='btn btn-block btn-primary' href="/{{game}}"
-    data-oahu-action="login_redirect.logon" data-oahu-provider="facebook"
-  ><img src="{{image}}"/><span>Pronostiquez les {{game_name}}</span></a>
-</script>
-
-
-<script type="text/handlebars" data-oahu-template="quiz_entries">
-  <div class="stack">
-    <div class='page_counter'>
-      <a class='current'><span class="current_idx"></span> / {{entries.length}}</a>
-    </div>
-    {{#entries}}
-      {{> quiz_entry}}
-    {{/entries}}
-  </div>
-  <span class="quiz_timer"></span>
-  <span class="question_timer"></span>
-</script>
-
-<script type="text/handlebars" data-oahu-template="quiz_answer">
-  {{#resource}}
-    <div class="pull-left" href="#">
-    {{> quiz_resource}}
-    </div>
-  {{/resource}}
-  <div class="media-body">
-    <h4 class="media-heading">{{name}}</h4>
-    {{> quiz_description}}
-  </div>
-</script>
-
-<script type="text/handlebars" data-oahu-template="quiz_resource">
-  {{#is_image}}
-    <img class='media-object' src="{{paths.small}}">
-  {{/is_image}}
-  {{#is_video}}
-    <div class="videoplayer" id="videoplayer_{{id}}" data-oahu-widget="video" data-oahu-id='{{id}}'></div>
-  {{/is_video}}
-</script>
-
 <script type="text/handlebars" data-oahu-template="answers">
+{{#if account}}
   {{#my_answers}}
     <h4>{{name}}</h4>
     <div class='available'>
@@ -90,7 +24,12 @@
     </div>
     <hr/>
   {{/my_answers}}
+{{/if}}
+{{^account}}
+  <a class='btn btn-block btn-primary' data-oahu-action="login" data-oahu-provider="facebook">Connectez vous pour voir les résultats</a>
+{{/account}}
 </script>
+
 <script type="text/handlebars" data-oahu-template="leaders">
   <table class='table'>
     <thead>
@@ -101,118 +40,26 @@
       </tr>
     </thead>
     <tbody>
-    {{#leaders}}
-      <tr>
-        <td><img src="{{picture}}"/> {{name}}</td>
-        <td>{{rank}}</td>
-        <td>{{score}}</td>
-      </tr>
-    {{/leaders}}
+    {{#leaderboard}}
+      <h6>Votre classement: {{current_player_rank}}</h6>
+      {{#players}}
+        <tr>
+          <td><img src="{{picture}}"/> {{name}}</td>
+          <td>{{rank}}</td>
+          <td>{{score}}</td>
+        </tr>
+      {{/players}}
+    {{/leaderboard}}
     </tbody>
   </table>
 </script>
-<script type="text/handlebars" data-oahu-template="quiz_pagination">
-  <div class='pagination_'>
-    <div class='pages'>
-      <a class='btn btn-small prev'  data-oahu-action="quiz.prev">← Pr&eacute;c&eacute;dent</a>
-      <a class='btn btn-small next'  data-oahu-action="quiz.next">Suivant →</a>
-    </div>
-    <div class='actions'>
-      <a class='btn btn-small finish' data-oahu-action="quiz.finish">Terminer</a>
-    </div>
-  </div>
-</script>
 
-<script type="text/handlebars" data-oahu-template="quiz_entry">
-  <div class='entry' id='entry_{{id}}' data-entry-id='{{id}}'>
-    <div class='question row'>
-      <div class='span7'>
-        <h2 class='title'>{{name}}</h2>
-        {{#picture}}
-          <div class="picture">{{#picture}}<div><img src="{{picture}}"></div>{{/picture}}</div>
-        {{/picture}}
-        {{#resource}}
-          {{> quiz_resource}}
-        {{/resource}}
-        {{> quiz_description}}
-      </div>
-      <div class='span5 text-right'>
-        {{>quiz_pagination}}
-      </div>
-    </div>
-
-    <hr/>
-
-    <ul class="answers">
-      {{#answers}}
-        <li class="{{#if selected}}selected{{/if}} span4 media answer" id="answer_{{id}}" data-oahu-action="quiz.answer" data-oahu-opts="{{id}}">{{> quiz_answer}}</li>
-      {{/answers}}
-    </ul>
-  </div>
-</script>
-
-
-<script type="text/handlebars" data-oahu-template="quiz_intro">
-  {{#account}}
-  <div class='actions'>
-    <h1 class='text-center'>Vous êtes prêts ?</h1>
-    <p class='lead text-center'>{{../message}}</p >
-    <hr/>
-    <a class="btn btn-info btn-block btn-large" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Démarrer les pronostics</a>
-  </div>
-  {{/account}}
-  {{^account}}
-    <p class='message'>Bonjour, bienvenue cher inconnu... Connectez vous avec facebook !</p>
-    <div class='actions'>
-      <a class="btn btn-primary facebook" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Participer avec Facebook</a>
-    </div>
-  {{/account}}
-  <hr/>
-  <p class='well text-center'>Pas de panique, votre palmarès ne sera pas rendu public. Il restera votre petit secret… Seul votre score final sera visible après les cérémonies</p>
-</script>
-
-<script type="text/handlebars" data-oahu-template="quiz_shares">
-</script>
-
-<script type="text/handlebars" data-oahu-template="quiz_finished">
-{{#account}}
-  <p class='lead'>Bravo, c'est terminé. Vous devez enregistrer votre participation pour qu'elle soit prise en compte.</p>
-  <div class='actions'><a class="btn btn-primary" data-oahu-action="quiz.submit">Enregistrer ma participation ! </a></div>
-{{/account}}
-{{^account}}
-  Bravo, vous avez terminé le quiz. Inscrivez vous pour enregistrer votre participation !
-  <div class='actions'><a class="btn primary" data-oahu-action="quiz.submit">M'inscrire</a></div>
-{{/account}}
-  <hr/>
-  <p class='well text-center'>Pas de panique, votre palmarès ne sera pas rendu public. Il restera votre petit secret… Seul votre score final sera visible après les cérémonies</p>
-</script>
-
-<script type="text/handlebars" data-oahu-template="quiz_submitted">
-  <p class='lead'>
-    <strong>Bravo ! Vos pronostics sont bien enregistrés.</strong>
-    <br/>
-    {{message}}
-  </p>
-  <div class='actions row-fluid'>
-    <div class='span4'>
-      <a data-oahu-action="quiz.show_printable" class='btn btn-block btn-primary'> Imprimer Mes Pronostics </a>
-      <p><em>(On vous a fait une jolie présentation pour vous faire mousser à votre soirée César/Oscars)</em></p>
-    </div>
-    <div class='span4'>
-      <a class="btn btn-block btn-warning" data-oahu-action="quiz.restart">Modifier mes pronostics</a>
-      <p>&nbsp;</p>
-    </div>
-    <div class='span4'>
-      <a class="btn btn-block btn-info" data-oahu-action="quiz.go_to_other">Pronostiquer les {{other}}</a>
-      <p>&nbsp;</p>
-    </div>
-  </div>
-  <div class='shares'>
-    <hr/>
-    <p class='lead'>Partager</p>
-    <a class="btn btn-small share facebook" data-oahu-action="quiz.invite"><i class='icon'></i> Inviter des amis</a>
-    <a class='btn btn-small share facebook' data-oahu-action="quiz.share" data-oahu-provider='facebook'><i class='icon'></i> Partager</a>
-  </div>
+<script type='text/handlebars' data-oahu-template="identity">
+  <a class='btn btn-block btn-primary' href="/{{game}}"
+    {{^account}}
+      data-oahu-action="login_redirect.logon" data-oahu-provider="facebook"
+    {{/account}}
+  ><img src="{{image}}"/><span>Pronostiquez les {{game_name}}</span></a>
 </script>
 
 <script type="text/handlebars" data-oahu-template="friends">
@@ -255,5 +102,171 @@
     <p class='lead'>Connectez vous pour voir lesquels de vos amis ont participé !</p>
     <a class='btn btn-block btn-large btn-primary' data-oahu-action="login" data-oahu-provider='facebook'>Connectez vous avec Facebook</a>
   {{/if}}
+</script>
+
+
+
+
+
+<script type="text/handlebars" data-oahu-template="quiz_entries">
+  <div class="stack">
+    <div class='page_counter'>
+      <a class='current'><span class="current_idx"></span> / {{entries.length}}</a>
+    </div>
+    {{#entries}}
+      {{> quiz_entry}}
+    {{/entries}}
+  </div>
+  <span class="quiz_timer"></span>
+  <span class="question_timer"></span>
+</script>
+
+<script type="text/handlebars" data-oahu-template="quiz_answer">
+  {{#resource}}
+    <div class="pull-left" href="#">
+    {{> quiz_resource}}
+    </div>
+  {{/resource}}
+  <div class="media-body">
+    <h4 class="media-heading">{{name}}</h4>
+    {{> quiz_description}}
+  </div>
+</script>
+
+<script type="text/handlebars" data-oahu-template="quiz_resource">
+  {{#is_image}}
+    <img class='media-object' src="{{paths.small}}">
+  {{/is_image}}
+  {{#is_video}}
+    <div class="videoplayer" id="videoplayer_{{id}}" data-oahu-widget="video" data-oahu-id='{{id}}'></div>
+  {{/is_video}}
+</script>
+<script type='text/handlebars' data-oahu-template="quiz_printable">
+  <div class='row answers_headers'>
+    <div class='span8'>
+      <h1>Les votes de {{#account}}{{name}}{{/account}} pour les {{self}}</h1>
+    </div>
+    <div class='span4'>
+      <h4>
+        <a class="btn secondary" data-oahu-action="quiz.do_print">Imprimer</a>
+      </h4>
+    </div>
+  </div>
+  <div class='row user_answers'>
+    {{#answers_details}}
+      <div class='span4'>
+        <h4>{{name}}</h4>
+        <div class='media answer'>
+          {{#response}}
+            {{> quiz_answer}}
+          {{/response}}
+        </div>
+      </div>
+    {{/answers_details}}
+  </div>
+  <a class="btn secondary" data-oahu-action="quiz.do_print">Imprimer</a>
+</script>
+
+<script type="text/handlebars" data-oahu-template="quiz_pagination">
+  <div class='pagination_'>
+    <div class='pages'>
+      <a class='btn btn-small prev'  data-oahu-action="quiz.prev">← Pr&eacute;c&eacute;dent</a>
+      <a class='btn btn-small next'  data-oahu-action="quiz.next">Suivant →</a>
+    </div>
+    <div class='actions'>
+      <a class='btn btn-small finish' data-oahu-action="quiz.finish">Terminer</a>
+    </div>
+  </div>
+</script>
+
+<script type="text/handlebars" data-oahu-template="quiz_entry">
+  <div class='entry' id='entry_{{id}}' data-entry-id='{{id}}'>
+    <div class='question row'>
+      <div class='span7'>
+        <h2 class='title'>{{name}}</h2>
+        {{#picture}}
+          <div class="picture">{{#picture}}<div><img src="{{picture}}"></div>{{/picture}}</div>
+        {{/picture}}
+        {{#resource}}
+          {{> quiz_resource}}
+        {{/resource}}
+        {{> quiz_description}}
+      </div>
+      <div class='span5 text-right'>
+        {{>quiz_pagination}}
+      </div>
+    </div>
+
+    <hr/>
+
+    <ul class="answers">
+      {{#answers}}
+        <li class="{{#if selected}}selected{{/if}} span4 media answer" id="answer_{{id}}" data-oahu-action="quiz.answer" data-oahu-opts="{{id}}">{{> quiz_answer}}</li>
+      {{/answers}}
+    </ul>
+  </div>
+</script>
+
+<script type="text/handlebars" data-oahu-template="quiz_intro">
+  {{#account}}
+  <div class='actions'>
+    <h1 class='text-center'>Vous êtes prêts ?</h1>
+    <p class='lead text-center'>{{../message}}</p >
+    <hr/>
+    <a class="btn btn-info btn-block btn-large" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Démarrer les pronostics</a>
+  </div>
+  {{/account}}
+  {{^account}}
+    <p class='message'>Bonjour, bienvenue cher inconnu... Connectez vous avec facebook !</p>
+    <div class='actions'>
+      <a class="btn btn-primary facebook" data-oahu-action="quiz.start" data-oahu-opts='facebook'>Participer avec Facebook</a>
+    </div>
+  {{/account}}
+  <hr/>
+  <p class='well text-center'>Pas de panique, votre palmarès ne sera pas rendu public. Il restera votre petit secret… Seul votre score final sera visible après les cérémonies</p>
+</script>
+
+<script type="text/handlebars" data-oahu-template="quiz_shares">
+</script>
+
+<script type="text/handlebars" data-oahu-template="quiz_finished">
+  {{#account}}
+    <p class='lead'>Bravo, c'est terminé. Vous devez enregistrer votre participation pour qu'elle soit prise en compte.</p>
+    <div class='actions'><a class="btn btn-primary" data-oahu-action="quiz.submit">Enregistrer ma participation ! </a></div>
+  {{/account}}
+  {{^account}}
+    Bravo, vous avez terminé le quiz. Inscrivez vous pour enregistrer votre participation !
+    <div class='actions'><a class="btn primary" data-oahu-action="quiz.submit">M'inscrire</a></div>
+  {{/account}}
+    <hr/>
+    <p class='well text-center'>Pas de panique, votre palmarès ne sera pas rendu public. Il restera votre petit secret… Seul votre score final sera visible après les cérémonies</p>
+</script>
+
+<script type="text/handlebars" data-oahu-template="quiz_submitted">
+  <p class='lead'>
+    <strong>Bravo ! Vos pronostics sont bien enregistrés.</strong>
+    <br/>
+    {{message}}
+  </p>
+  <div class='actions row-fluid'>
+    <div class='span4'>
+      <a data-oahu-action="quiz.show_printable" class='btn btn-block btn-primary'> Imprimer Mes Pronostics </a>
+      <p><em>(On vous a fait une jolie présentation pour vous faire mousser à votre soirée César/Oscars)</em></p>
+    </div>
+    <div class='span4'>
+      <a class="btn btn-block btn-warning" data-oahu-action="quiz.restart">Modifier mes pronostics</a>
+      <p>&nbsp;</p>
+    </div>
+    <div class='span4'>
+      <a class="btn btn-block btn-info" data-oahu-action="quiz.go_to_other">Pronostiquer les {{other}}</a>
+      <p>&nbsp;</p>
+    </div>
+  </div>
+  <div class='shares'>
+    <hr/>
+    <p class='lead'>Partager</p>
+    <a class="btn btn-small share facebook" data-oahu-action="quiz.invite"><i class='icon'></i> Inviter des amis</a>
+    <a class='btn btn-small share facebook' data-oahu-action="quiz.share" data-oahu-provider='facebook'><i class='icon'></i> Partager</a>
+  </div>
 </script>
 
