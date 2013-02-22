@@ -135,7 +135,7 @@ body{
     .page_counter{
       font-weight: 900;
     }
-    .pagination{
+    .pagination_{
       .btn{
         padding: 10px 13px;
         &.disabled{
@@ -229,7 +229,7 @@ body{
         margin:0;
       }
     }
-    .pagination .pages, .footer{
+    .pagination_ .pages, .footer{
       display: none;
     }
   }
@@ -312,7 +312,7 @@ body{
   .banner{
     height: 120px;
   }
-  .pagination{
+  .pagination_{
     position: fixed;
     bottom: -20px;
     left: -20px;
@@ -361,3 +361,15 @@ body{
     height: 100px;
   }
 }
+
+// .answers{
+//   .media{
+//     display: inline-block;
+//   }
+//   .media-object{
+//     width: 60px;
+//   }
+//   .media-body{
+//     display: none;
+//   }
+// }

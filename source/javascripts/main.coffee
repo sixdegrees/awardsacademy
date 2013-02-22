@@ -13,7 +13,7 @@ class Oahu.Apps.LoginRedirect extends Oahu.Apps.Identity
   namespace:'login_redirect'
   attrs: ["game", "game_name", 'image']
   logon: (e, ev, opts)->
-    href=$(e).attr('href')
+    href=$(e).attr('href')+'?v='+Math.floor(Math.random()*10000000)
     ev.preventDefault()
     Oahu.login 'facebook', {}, (res)->
       if Oahu.account && res=='facebook:connect:success'
@@ -78,6 +78,36 @@ class Oahu.Apps.OscarQuiz extends Oahu.Apps.CaQuiz
   self: 'Oscars'
   other:'Cesar'
   thumb: 'http://app-staging.oahu.fr/img/511e4add873b0c4e5f007a95/medium'
+
+Oahu.Apps.register "leaders", {
+  namespace      : 'leaders'
+  templates      : ['leaders']
+  refresh_events: ['oahu:account:success','push:player:badge:update']
+
+  getData: (cb)->
+    Oahu.app.getLeaderboard {id:@id}, (leaders)=>
+      @leaders = leaders.players
+      cb.call(@)
+}
+ 
+Oahu.Apps.register "answers", {
+  namespace      : 'answers'
+  templates      : ['answers', 'quiz_answer', 'quiz_resource', 'quiz_description']
+  refresh_events: ['oahu:account:success','push:player:badge:update']
+
+  getData: (cb)->
+    @answers = Oahu.app.achievements[@id].entries
+    @selection = Oahu.account.player.badges[@id].data.answers
+    @my_answers = _.map @answers, (entry)=>
+      my_selection = @selection[entry.id]
+      selected = _.find entry.answers, (answer)=> answer.id==my_selection
+      {
+        name: entry.name
+        answers: entry.answers
+        selected: selected
+      }
+    cb.call(@)
+}
 
 class Oahu.Apps.CesarQuiz extends Oahu.Apps.CaQuiz
   namespace:'oscar_quiz'

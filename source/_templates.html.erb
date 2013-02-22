@@ -26,9 +26,8 @@
 
 <script type='text/handlebars' data-oahu-template="identity">
   <a class='btn btn-block btn-primary' href="/{{game}}"
-  {{^account}}
     data-oahu-action="login_redirect.logon" data-oahu-provider="facebook"
-  {{/account}}><img src="{{image}}"/><span>Pronostiquez les {{game_name}}</span></a>
+  ><img src="{{image}}"/><span>Pronostiquez les {{game_name}}</span></a>
 </script>
 
 
@@ -66,8 +65,54 @@
   {{/is_video}}
 </script>
 
+<script type="text/handlebars" data-oahu-template="answers">
+  {{#my_answers}}
+    <h4>{{name}}</h4>
+    <div class='available'>
+      {{#answers}}
+        <div class='media'>
+          {{>quiz_answer}}
+        </div>
+      {{/answers}}
+    </div>
+    <div class='row-fluid'>
+      <div class='span6'>
+        <h6>Votre Choix</h6>
+        <div class='media answer'>
+          {{#selected}}
+            {{> quiz_answer}}
+          {{/selected}}
+        </div>
+      </div>
+      <div class='span6'>
+        <h6>Le gagnant</h6>
+      </div>
+    </div>
+    <hr/>
+  {{/my_answers}}
+</script>
+<script type="text/handlebars" data-oahu-template="leaders">
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Classement</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#leaders}}
+      <tr>
+        <td><img src="{{picture}}"/> {{name}}</td>
+        <td>{{rank}}</td>
+        <td>{{score}}</td>
+      </tr>
+    {{/leaders}}
+    </tbody>
+  </table>
+</script>
 <script type="text/handlebars" data-oahu-template="quiz_pagination">
-  <div class='pagination'>
+  <div class='pagination_'>
     <div class='pages'>
       <a class='btn btn-small prev'  data-oahu-action="quiz.prev">← Pr&eacute;c&eacute;dent</a>
       <a class='btn btn-small next'  data-oahu-action="quiz.next">Suivant →</a>
