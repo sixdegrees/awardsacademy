@@ -86,7 +86,7 @@ class Oahu.Apps.CesarQuiz extends Oahu.Apps.CaQuiz
   other:'Oscars'
   thumb: 'http://app-staging.oahu.fr/img/511e514b873b0c4f55007cff/medium'
 
-Oahu.Apps.register "leaders", {
+class Oahu.Apps.Leaders extends Oahu.Apps.Identity
   namespace      : 'leaders'
   templates      : ['leaders']
   refresh_events: ['oahu:account:success','push:player:badge:update']
@@ -95,27 +95,51 @@ Oahu.Apps.register "leaders", {
   limit:25
 
   getData: (cb)->
-    Oahu.app.getLeaderboard {id:@id, method:@method, limit:@limit}, (leaderboard)=>
-      @leaderboard = leaderboard
+    if Oahu.account
+      Oahu.app.getLeaderboard {id:@id, method:@method, limit:@limit}, (leaderboard)=>
+        @leaderboard = leaderboard
+        @leaderboard.players = _.select @leaderboard.players, (players)->
+          player?.score > 0 
+        cb.call(@)
+    else
       cb.call(@)
-}
 
-Oahu.Apps.register "answers", {
+class Oahu.Apps.Answers extends Oahu.Apps.Identity
   namespace      : 'answers'
   templates      : ['answers', 'quiz_answer', 'quiz_resource', 'quiz_description']
   refresh_events: ['oahu:account:success','push:player:badge:update']
 
+
+  initialize: ->
+    @achievement = Oahu.app.achievements[@id]
+    Oahu.bind "push:app:achievement:update:#{@id}", (msg, data)=>
+      @achievement = data
+      @render()
+
   getData: (cb)->
-    @answers = Oahu.app.achievements[@id].entries
-    @selection = Oahu.account.player.badges[@id].data.answers
-    @my_answers = _.map @answers, (entry)=>
-      my_selection = @selection[entry.id]
-      selected = _.find entry.answers, (answer)=> answer.id==my_selection
-      {
-        name: entry.name
-        answers: entry.answers
-        selected: selected
-      }
-    cb.call(@)
-}
+    if Oahu.account
+      @answers = @achievement.entries
+      @distribution = @achievement.answers_distribution
+      @selection = Oahu.account.player.badges[@id].data.answers
+      @my_answers = _.map @answers, (entry)=>
+        my_selection = @selection[entry.id]
+        distribution = @distribution[entry.id]
+        sum = _.reduce distribution, (memo, val, key)=>
+          memo + val
+        , 0
+
+        winner = _.max entry.answers, (answer)-> answer.weight
+        winner = null unless winner.weight > 0
+        _.each entry.answers, (answer)-> answer.rate = Math.round((distribution[answer.id]/sum)*100)
+
+        selected = _.find entry.answers, (answer)=> answer.id==my_selection
+        {
+          name     : entry.name
+          answers  : entry.answers
+          selected : selected
+          winner   : winner
+        }
+      cb.call(@)
+    else
+      cb.call(@)
 
