@@ -98,8 +98,8 @@ class Oahu.Apps.Leaders extends Oahu.Apps.Identity
     if Oahu.account
       Oahu.app.getLeaderboard {id:@id, method:@method, limit:@limit}, (leaderboard)=>
         @leaderboard = leaderboard
-        @leaderboard.players = _.select @leaderboard.players, (players)->
-          player?.score > 0 
+        # @leaderboard.players = _.select @leaderboard.players, (players)->
+        #   player?.score > 0 
         cb.call(@)
     else
       cb.call(@)
@@ -120,7 +120,7 @@ class Oahu.Apps.Answers extends Oahu.Apps.Identity
     if Oahu.account
       @answers = @achievement.entries
       @distribution = @achievement.answers_distribution
-      @selection = Oahu.account.player.badges[@id].data.answers
+      @selection = Oahu.account.player.badges[@id]?.data.answers || {}
       @my_answers = _.map @answers, (entry)=>
         my_selection = @selection[entry.id]
         distribution = @distribution[entry.id]
