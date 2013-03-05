@@ -119,7 +119,7 @@ class Oahu.Apps.Answers extends Oahu.Apps.Identity
   getData: (cb)->
     if Oahu.account
       @answers = @achievement.entries
-      @distribution = @achievement.answers_distribution
+      @distribution = @achievement.answers_distribution || {}
       @selection = Oahu.account.player.badges[@id]?.data.answers || {}
       @my_answers = _.map @answers, (entry)=>
         my_selection = @selection[entry.id]
@@ -129,7 +129,7 @@ class Oahu.Apps.Answers extends Oahu.Apps.Identity
         , 0
 
         winner = _.max entry.answers, (answer)-> answer.weight
-        winner = null unless winner.weight > 0
+        winner = null unless winner?.weight > 0
         _.each entry.answers, (answer)-> answer.rate = Math.round((distribution[answer.id]/sum)*100)
 
         selected = _.find entry.answers, (answer)=> answer.id==my_selection
