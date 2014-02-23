@@ -1,36 +1,36 @@
 <script type="text/handlebars" data-oahu-template="answers">
-{{#if account}}
-  {{#my_answers}}
-    <h4>{{name}}</h4>
-    <div class='row-fluid mine'>
-      <div class='span6'>
-        <h6>Votre Choix</h6>
-        {{#selected}}
-          {{> quiz_answer}}
-        {{/selected}}
-      </div>
-      <div class='span6'>
-        <h6>Le gagnant</h6>
-        {{#winner}}
-          {{>quiz_answer}}
-        {{/winner}}
-      </div>
-    </div>
-    <div class='available'>
-      <h6>Répartition des votes</h6>
-      {{#answers}}
-        <div class='media'>
-          {{>quiz_answer}}
-          <p class='progress'> {{rate}}% </p>
+  {{#if account}}
+    {{#my_answers}}
+      <h4>{{name}}</h4>
+      <div class='row-fluid mine'>
+        <div class='span6'>
+          <h6>Votre Choix</h6>
+          {{#selected}}
+            {{> quiz_answer}}
+          {{/selected}}
         </div>
-      {{/answers}}
-    </div>
-    <hr/>
-  {{/my_answers}}
-{{/if}}
-{{^account}}
-  <a class='btn btn-block btn-primary' data-oahu-action="login" data-oahu-provider="facebook">Connectez vous pour voir les résultats</a>
-{{/account}}
+        <div class='span6'>
+          <h6>Le gagnant</h6>
+          {{#winner}}
+            {{>quiz_answer}}
+          {{/winner}}
+        </div>
+      </div>
+      <div class='available'>
+        <h6>Répartition des votes</h6>
+        {{#answers}}
+          <div class='media'>
+            {{>quiz_answer}}
+            <p class='progress'> {{rate}}% </p>
+          </div>
+        {{/answers}}
+      </div>
+      <hr/>
+    {{/my_answers}}
+  {{/if}}
+  {{^account}}
+    <a class='btn btn-block btn-primary' data-oahu-action="login" data-oahu-provider="facebook">Connectez vous pour voir les résultats</a>
+  {{/account}}
 </script>
 
 <script type="text/handlebars" data-oahu-template="leaders">
@@ -109,10 +109,6 @@
     <a class='btn btn-block btn-large btn-primary' data-oahu-action="login" data-oahu-provider='facebook'>Connectez vous avec Facebook</a>
   {{/if}}
 </script>
-
-
-
-
 
 <script type="text/handlebars" data-oahu-template="quiz_entries">
   <div class="stack">

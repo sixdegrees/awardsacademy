@@ -1,27 +1,31 @@
-source :rubygems
+source "http://rubygems.org"
 
 gem "rack-contrib"
+gem "rack-environment"
+gem "activesupport"
+gem "slim"
 
-gem 'middleman'
+gem "json", "~> 1.8.0"
 
-gem 'middleman-sprockets'
-gem 'middleman-gh-pages'
-gem 'middleman-smusher'
-gem 'middleman-livereload'
-gem 'slim'
-gem 'oj'        # faster JSON
+gem "sass", "~> 3.2.5"
+gem "compass", :git => "git://github.com/chriseppstein/compass.git", :tag => "v0.13.alpha.4"
+gem "sass-getunicode"
+gem "bootstrap-sass", "3.0.3.0"
 
-gem 'handlebars_assets'
+gem "execjs"
+gem "oj"        # faster JSON
 
-gem 'libv8', '~> 3.11.8'
-gem 'execjs'
-# gem 'therubyracer' #faster ExecJS
-# gem 'therubyracer-heroku', '0.8.1.pre3'
+gem "middleman"
+gem "middleman-sprockets"
+gem "middleman-livereload"
+gem "middleman-smusher"
+gem "middleman-sync"
 
-gem 'redcarpet' # Better Markdown
-gem 'animation' # css animation plugin
-gem 'compass', :git => 'git://github.com/chriseppstein/compass.git', :ref => 'cbe1aa274cb3a245c77e3ffd5d49add471f5e566'
+gem "uifaces"
+gem "random_data"
 
 group :development do
-  gem 'heroku'
+  gem "foreman"
+  gem "fontcustom"
+  gem "middleman-gh-pages"
 end
